@@ -1,6 +1,6 @@
 (function ($) {
  "use strict";
-
+ 
 	 /*----------------------------------------*/
 	/*  1.  Basic Line Chart
 	/*----------------------------------------*/
@@ -8,20 +8,20 @@
 	var basiclinechart = new Chart(ctx, {
 		type: 'line',
 		data: {
-			labels: ["January", "February", "March", "April"],
+			labels: ["January", "February", "March"],
 			datasets: [{
 				label: "My First dataset",
 				fill: false,
                 backgroundColor: '#00c292',
 				borderColor: '#00c292',
-				data: [9, 12, 19, 5]
+				data: [9, 12, 19]
             }, {
                 label: "My Second dataset",
 				fill: false,
                 backgroundColor: '#fb9678',
 				borderColor: '#fb9678',
-				data: [12, 3, 4, 1]
-
+				data: [-12, -3, -4]
+				
 		}]
 		},
 		options: {
@@ -56,11 +56,11 @@
 			}
 		}
 	});
-
+	
 	/*----------------------------------------*/
 	/*  2.  Line Chart Interpolation
 	/*----------------------------------------*/
-
+	
 	var ctx = document.getElementById("linechartinterpolation");
 	var linechartinterpolation = new Chart(ctx, {
 		type: 'line',
@@ -71,15 +71,15 @@
 				fill: false,
                 backgroundColor: '#00c292',
 				borderColor: '#00c292',
-				data: [0, 15, 17, 200, 0, 12, 200, 5, 200, 8, 200, 12, 200],
+				data: [0, 15, 17, 200, 0, 12, -200, 5, 200, 8, 200, 12, 200],
 				cubicInterpolationMode: 'monotone'
             }, {
                 label: "Cubic interpolation",
 				fill: false,
                 backgroundColor: '#fb9678',
 				borderColor: '#fb9678',
-				data: [100, 200, 12, 200, 12, 200, 8, 200, 9, 200, 200, 12, 200]
-
+				data: [-100, 200, 12, -200, 12, 200, 8, -200, 9, 200, -200, -12, -200]
+				
 		}]
 		},
 		options: {
@@ -112,12 +112,12 @@
 			}
 		}
 	});
-
-
+	
+	
 	/*----------------------------------------*/
 	/*  3.  Line Chart styles
 	/*----------------------------------------*/
-
+	
 	var ctx = document.getElementById("linechartstyles");
 	var linechartstyles = new Chart(ctx, {
 		type: 'line',
@@ -136,7 +136,7 @@
 				borderColor: '#fb9678',
 				borderDash: [5, 5],
 				data: [-100, 200, 12, -200, 12]
-
+				
 		}]
 		},
 		options: {
@@ -174,7 +174,7 @@
 	/*----------------------------------------*/
 	/*  4.  Line Chart point circle
 	/*----------------------------------------*/
-
+	
 	var ctx = document.getElementById("linechartpointcircle");
 	var linechartpointcircle = new Chart(ctx, {
 		type: 'line',
@@ -188,7 +188,7 @@
 				fill: false,
 				pointRadius: 4,
 				pointHoverRadius: 10,
-				showLine: false
+				showLine: false 
 			}]
 		},
 		options: {
@@ -207,7 +207,7 @@
 			}
 		}
 	});
-
-
-
-})(jQuery);
+	
+	
+		
+})(jQuery); 
