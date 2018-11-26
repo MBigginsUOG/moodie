@@ -42,6 +42,8 @@ rect:hover {  fill:blue; }
 <div id='dashboard'>
 </div>
 <script src="http://d3js.org/d3.v3.min.js"></script>
+
+
 <script>
 function dashboard(id, fData){
     var barColor = 'steelblue';
@@ -249,10 +251,7 @@ function dashboard(id, fData){
         leg= legend(tF);  // create the legend.
 }
 </script>
-
 <script>
-
-
 var freqData=[
 {Activity:'Exercised',freq:{awful:42, bad:4786, meh:19, good:249, rad:949}}
 ,{Activity:'AZ',freq:{awful:34, bad:1101, meh:412, good:674, rad:99}}
@@ -265,7 +264,5 @@ var freqData=[
 ,{Activity:'Date',freq:{awful:34, bad:797, meh:1849, good:134, rad:99}}
 ,{Activity:'KS',freq:{awful:43, bad:162, meh:379, good:471, rad:969}}
 ];
-
 dashboard('#dashboard',freqData);
-
 </script>
