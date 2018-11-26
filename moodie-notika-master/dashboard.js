@@ -1,51 +1,22 @@
-<!-- http://bl.ocks.org/NPashaP/raw/96447623ef4d342ee09b/ -->
+var freqData=[
+{Activity:'Exercised',freq:{awful:42, bad:4786, meh:19, good:249, rad:949}}
+,{Activity:'AZ',freq:{awful:34, bad:1101, meh:412, good:674, rad:99}}
+,{Activity:'CT',freq:{awful:44, bad:932, meh:219, good:418, rad:199}}
+,{Activity:'Cleaned',freq:{awful:74, bad:32, meh:152, good:1862, rad:99}}
+,{Activity:'FL',freq:{awful:964, bad:4481, meh:3304, good:948, rad:69}}
+,{Activity:'GA',freq:{awful:4, bad:119, meh:167, good:163, rad:99}}
+,{Activity:'Socialised',freq:{awful:444, bad:1819, meh:247, good:1203, rad:99}}
+,{Activity:'IL',freq:{awful:4, bad:448, meh:3852, good:942, rad:99}}
+,{Activity:'Date',freq:{awful:34, bad:797, meh:1849, good:134, rad:99}}
+,{Activity:'KS',freq:{awful:43, bad:162, meh:379, good:471, rad:969}}
+];
 
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
-body{
-    width:1060px;
-    margin:50px auto;
-}
-path {  stroke: #fff; }
-path:hover {  opacity:0.9; }
-rect:hover {  fill:blue; }
-.axis {  font: 10px sans-serif; }
-.legend tr{    border-bottom:1px solid grey; }
-.legend tr:first-child{    border-top:1px solid grey; }
+// dashboard('#dashboard',freqData);
+dashboard('#histId','#legId','#pieId',freqData);
 
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
+// function dashboard(id, fData){
+function dashboard(histId, legId, pieId, fData){
 
-.x.axis path {  display: none; }
-.legend{
-    margin-bottom:76px;
-    display:inline-block;
-    border-collapse: collapse;
-    border-spacing: 0px;
-}
-.legend td{
-    padding:4px 5px;
-    vertical-align:bottom;
-}
-.legendFreq, .legendPerc{
-    align:right;
-    width:50px;
-}
-
-</style>
-<body>
-<div id='dashboard'>
-</div>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-
-
-<script>
-function dashboard(id, fData){
     var barColor = 'steelblue';
     function segColor(c){ return {
                                   awful:"green",
@@ -63,12 +34,15 @@ function dashboard(id, fData){
 
     // function to handle histogram.
     function histoGram(fD){
-        var hG={},    hGDim = {t: 60, r: 0, b: 30, l: 0};
+
+        var hG={};
+        var hGDim = {t: 60, r: 0, b: 30, l: 0};
         hGDim.w = 500 - hGDim.l - hGDim.r,
         hGDim.h = 300 - hGDim.t - hGDim.b;
 
         //create svg for histogram.
-        var hGsvg = d3.select(id).append("svg")
+        // var hGsvg = d3.select(id).append("svg")
+        var hGsvg = d3.select(histId).append("svg")
             .attr("width", hGDim.w + hGDim.l + hGDim.r)
             .attr("height", hGDim.h + hGDim.t + hGDim.b).append("g")
             .attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")");
@@ -146,11 +120,13 @@ function dashboard(id, fData){
 
     // function to handle pieChart.
     function pieChart(pD){
-        var pC ={},    pieDim ={w:250, h: 250};
+        var pC ={};
+        var pieDim ={w:250, h: 250};
         pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
 
         // create svg for pie chart.
-        var piesvg = d3.select(id).append("svg")
+        // var piesvg = d3.select(id).append("svg")
+        var piesvg = d3.select(pieId).append("svg")
             .attr("width", pieDim.w).attr("height", pieDim.h).append("g")
             .attr("transform", "translate("+pieDim.w/2+","+pieDim.h/2+")");
 
@@ -198,7 +174,8 @@ function dashboard(id, fData){
         var leg = {};
 
         // create table for legend.
-        var legend = d3.select(id).append("table").attr('class','legend');
+        // var legend = d3.select(id).append("table").attr('class','legend');
+        var legend = d3.select(legId).append("table").attr('class','legend');
 
         // create one row per segment.
         var tr = legend.append("tbody").selectAll("tr").data(lD).enter().append("tr");
@@ -249,20 +226,6 @@ function dashboard(id, fData){
     var hG = histoGram(sF), // create the histogram.
         pC = pieChart(tF), // create the pie-chart.
         leg= legend(tF);  // create the legend.
+
+
 }
-</script>
-<script>
-var freqData=[
-{Activity:'Exercised',freq:{awful:42, bad:4786, meh:19, good:249, rad:949}}
-,{Activity:'AZ',freq:{awful:34, bad:1101, meh:412, good:674, rad:99}}
-,{Activity:'CT',freq:{awful:44, bad:932, meh:219, good:418, rad:199}}
-,{Activity:'Cleaned',freq:{awful:74, bad:32, meh:152, good:1862, rad:99}}
-,{Activity:'FL',freq:{awful:964, bad:4481, meh:3304, good:948, rad:69}}
-,{Activity:'GA',freq:{awful:4, bad:119, meh:167, good:163, rad:99}}
-,{Activity:'Socialised',freq:{awful:444, bad:1819, meh:247, good:1203, rad:99}}
-,{Activity:'IL',freq:{awful:4, bad:448, meh:3852, good:942, rad:99}}
-,{Activity:'Date',freq:{awful:34, bad:797, meh:1849, good:134, rad:99}}
-,{Activity:'KS',freq:{awful:43, bad:162, meh:379, good:471, rad:969}}
-];
-dashboard('#dashboard',freqData);
-</script>
