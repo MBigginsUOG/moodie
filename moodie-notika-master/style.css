@@ -560,8 +560,11 @@ ul.notika-menu-wrap li a{
   width: auto !important;
   height: auto !important;
 }
+.
 .curved-inner-pro, .past-statistic-an, .recent-post-ctn, .recent-post-flex, .recent-items-ctn, .realtime-ctn, .realtime-visitor-ctn, .realtime-ctn-bw, .dw-st-ic, .wb-traffic-inner{
 	display:flex;
+  /* margin-right: auto;
+  margin-left: auto; */
   /* text-align: center; */
 }
 .curved-icon, .past-statistic-graph, .recent-post-icon, .recent-items-icon, .realtime-icon{
@@ -625,6 +628,8 @@ ul.notika-menu-wrap li a{
 }
 .past-day-statis, .curved-inner-pro{
 	margin-bottom:20px;
+  /* margin-right: auto;
+  margin-left: auto; */
 }
 /*----------------------------------------*/
 /*  6.  Email statistics CSS
