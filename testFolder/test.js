@@ -10,13 +10,14 @@ var freqData=[
 ,{Activity:'KS',freq:{awful:43, bad:162, meh:379, good:471, rad:969}}
 ];
 
-// dashboard('#dashboard',freqData);
+// dashboard('#testId',freqData);
 dashboard('#histId','#legId','#pieId',freqData);
 
 // function dashboard(id, fData){
 function dashboard(histId, legId, pieId, fData){
 
   var	margin = {top: 30, right: 40, bottom: 70, left: 50};
+	// var	margin = {top: 10, right: 40, bottom: 10, left: 50};
 
   var barColor = 'steelblue';
   function segColor(c){ return {
@@ -32,6 +33,7 @@ function dashboard(histId, legId, pieId, fData){
                             d.total = d.freq.awful + d.freq.bad + d.freq.meh + d.freq.good + d.freq.rad;
                             });
 
+/////////////////////////////////////////////////////////////////////
     // function to handle histogram.
   function histoGram(fD){
     var hG={};
@@ -39,25 +41,24 @@ function dashboard(histId, legId, pieId, fData){
     hGDim.w = 500 - hGDim.l - hGDim.r,
     hGDim.h = 300 - hGDim.t - hGDim.b;
 
-    //create svg for histogram.
-    // var hGsvg = d3.select(id).append("svg")
-    // // var hGsvg = d3.select(histId).append("svg")
+
+		// var hGsvg = d3.select(histId).append("svg")
     //             .attr("width", hGDim.w + hGDim.l + hGDim.r)
-    //             .attr("height", hGDim.h + hGDim.t + hGDim.b).append("g")
+    //             .attr("height", hGDim.h + hGDim.t + hGDim.b)
+		// 						.append("g")
     //             .attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")");
 
-    var hGsvg = d3.select(histId)
-    // var hGsvg = d3.select(id)
-      .append("div")
-      .classed("svg-container", true)
-      .append("svg")
-      .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", "0 0 600 400")
-      .classed("svg-content-responsive", true)
-      .attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")")
-      .append("g")
-      .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
+		var hGsvg = d3.select(histId)
+		  .append("div")
+		  .classed("svg-container", true)
+		  .append("svg")
+		  .attr("preserveAspectRatio", "xMinYMin meet")
+		  .attr("viewBox", "0 0 600 400")
+		  .classed("svg-content-responsive", true)
+			.attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")")
+			 .append("g")
+			 .attr("transform","translate(" + margin.left + "," + margin.top + ")");
+
 
         // create function for x-axis mapping.
         var x = d3.scale.ordinal().rangeRoundBands([0, hGDim.w], 0.1)
@@ -129,19 +130,29 @@ function dashboard(histId, legId, pieId, fData){
         }
         return hG;
     }
+/////////////////////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////////
     function pieChart(pD){
         var pC ={};
         var pieDim ={w:250, h: 250};
         pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
 
-
         // var piesvg = d3.select(id).append("svg")
-        var piesvg = d3.select(pieId).append("svg")
-            .attr("width", pieDim.w).attr("height", pieDim.h).append("g")
+				var piesvg = d3.select(pieId).append("svg")
+            .attr("width", pieDim.w).attr("height", pieDim.h)
+						.append("g")
             .attr("transform", "translate("+pieDim.w/2+","+pieDim.h/2+")");
 
+				// var piesvg = d3.select(pieId)
+				//   .append("div")
+				//   .classed("svg-container", true)
+				//   .append("svg")
+				//   .attr("preserveAspectRatio", "xMinYMin meet")
+				//   .attr("viewBox", "0 0 600 400")
+				//   .classed("svg-content-responsive", true)
+				// 	.attr("transform", "translate("+pieDim.w/2+","+pieDim.h/2+")")
+				// 	 .append("g")
+				// 	 .attr("transform","translate(" + margin.left + "," + margin.top + ")");
 
         // create function to draw the arcs of the pie slices.
         var arc = d3.svg.arc().outerRadius(pieDim.r - 10).innerRadius(0);
@@ -182,7 +193,8 @@ function dashboard(histId, legId, pieId, fData){
         return pC;
     }
 
-/////////////////////////////////////////////////////////
+ /////////////////////////////////////////////////////////////////////
+
     function legend(lD){
         var leg = {};
 
@@ -228,6 +240,7 @@ function dashboard(histId, legId, pieId, fData){
         return leg;
     }
 
+/////////////////////////////////////////////////////////////////////
     // calculate total frequency by segment for all Activity.
     var tF = ['awful','bad','meh','good','rad'].map(function(d){
         return {type:d, freq: d3.sum(fData.map(function(t){ return t.freq[d];}))};

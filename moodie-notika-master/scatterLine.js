@@ -21,12 +21,12 @@ var freqData=[
 
 scatterLine('#scatterLineId',freqData);
 
+
 function scatterLine(id, data) {
 
-var	margin = {top: 30, right: 40, bottom: 70, left: 50},
-	width = 600 - margin.left - margin.right,
-	height = 300 - margin.top - margin.bottom;
-
+var	margin = {top: 30, right: 40, bottom: 70, left: 50};
+var	width = 600 - margin.left - margin.right;
+var	height = 300 - margin.top - margin.bottom;
 
 // Parse the date / time
 var parseDate = d3.time.format("%d-%b-%y").parse;
@@ -47,18 +47,20 @@ var valueline = d3.svg.line()
     .x(function(d) { return x(d.date); })
     .y(function(d) { return y(d.mood); });
 
-// Adds the svg canvas
-// var svg = d3.select("body")
-var svg = d3.select(id)
-    .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-        .attr("transform",
-              "translate(" + margin.left + "," + margin.top + ")");
 
-// Get the data
-// d3.csv("scatterLine.csv", function(error, data) {
+var svg = d3.select(id)
+  .append("div")
+  .classed("svg-container", true) //container class to make it responsive
+  .append("svg")
+  //responsive SVG needs these 2 attributes and no width and height attr
+  .attr("preserveAspectRatio", "xMinYMin meet")
+  .attr("viewBox", "0 0 600 400")
+  //class to make it responsive
+  .classed("svg-content-responsive", true)
+	     .append("g")
+	         .attr("transform",
+	               "translate(" + margin.left + "," + margin.top + ")");
+
     data.forEach(function(d) {
         d.date = parseDate(d.date);
         d.mood = +d.mood;
@@ -157,5 +159,5 @@ var svg = d3.select(id)
         cleanedDots.active = active;
       });
 
-// });
+
 }
