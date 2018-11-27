@@ -123,13 +123,15 @@
                     <div class="sale-statistic-inner notika-shadow mg-tb-30">
                         <div class="curved-inner-pro" align="center">
                             <div class="curved-ctn" align="center">
-                                <h2>Mood Diary</h2>
-                                <p>How are you feeling today?</p>
+                                <h1>Mood Diary</h1>
                             </div>
                             <div align="center">
                                 <button id="back" name="back" ><</button>
                                 <label id="currentMonth">May 2013</label>
                                 <button id="forward" name="forward" >></button>
+                            </div>
+                            <div class="curved-ctn" align="center">
+                                <p>How are you feeling today?</p>
                             </div>
                         </div>
                         <!-- <div id="curved-line-chart" class="flot-chart-sts flot-chart"></div> -->
@@ -169,8 +171,7 @@
                         <!-- work, beach_access (relax), people, favorite (date) , directions_run (sport) , music_note (party)
                              movie, book, videogame_asset, shopping_cart, airplanemode_active, fastfood, color_lens (painting), flar(clear)
                         -->
-                        <div class="row">
-                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="curved-ctn" id="ActivitiesSection" align="center">
                             <div class="buttons-area">
                               <div class="btn-demo-notika mg-t-10">
                                 <div class="button-icon-btn button-icon-btn-cl sm-res-mg-t-10">
@@ -191,18 +192,13 @@
                                 </div>
                               </div>
                             </div>
-                          </div>
                         </div>
                         <!-- Diary Text Entry -->
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <div class="nk-int-st">
                                         <textarea class="form-control auto-size" rows="2" placeholder="Any thoughts to share about the day...?"></textarea>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
                         <button class="btn btn-primary notika-btn-primary btn-xs" onclick="unhideTick()">Done</button>
                         <i style="visibility:hidden" class="material-icons happy md-48" id="doneTick">done</i>
                     </div>
@@ -220,8 +216,8 @@
                               <link rel="stylesheet" type="text/css" />
                               <div align="center">
                                   <button id="back" name="back" ><</button>
-                                  <button id="forward" name="forward" >></button>
                                   <label id="currentMonth">Nov 2018</label>
+                                  <button id="forward" name="forward" >></button>
                               </div>
                               <div align="center" id="calendarId"></div>
                           </div>
@@ -245,7 +241,7 @@
                     <div class="recent-post-wrapper notika-shadow sm-res-mg-t-30 tb-res-ds-n dk-res-ds">
                         <div class="recent-post-ctn">
                             <div class="recent-post-title">
-                                <h2>Moodie Entries</h2>
+                                <h1>Moodie Entries</h1>
                             </div>
                         </div>
                         <div class="recent-post-items">
@@ -253,7 +249,7 @@
                                 <a href="#">
                                     <div class="recent-post-flex">
                                         <div class="recent-post-img">
-                                            <i class="material-icons happy">sentiment_satisfied</i>
+                                            <i class="material-icons md-36 happy">sentiment_satisfied</i>
                                         </div>
                                         <div class="recent-post-it-ctn">
                                             <h2>25th Nov</h2>
@@ -266,7 +262,7 @@
                                 <a href="#">
                                     <div class="recent-post-flex rct-pt-mg">
                                         <div class="recent-post-img">
-                                            <i class="material-icons vhappy">sentiment_very_satisfied</i>
+                                            <i class="material-icons md-36 vhappy">sentiment_very_satisfied</i>
                                         </div>
                                         <div class="recent-post-it-ctn">
                                             <h2>24th Nov</h2>
@@ -279,7 +275,7 @@
                                 <a href="#">
                                     <div class="recent-post-flex rct-pt-mg">
                                         <div class="recent-post-img">
-                                            <i class="material-icons vunhappy">sentiment_very_dissatisfied</i>
+                                            <i class="material-icons md-36 vunhappy">sentiment_very_dissatisfied</i>
                                         </div>
                                         <div class="recent-post-it-ctn">
                                             <h2>22nd Nov</h2>
@@ -292,7 +288,7 @@
                                 <a href="#">
                                     <div class="recent-post-flex rct-pt-mg">
                                       <div class="recent-post-img">
-                                          <i class="material-icons unhappy">sentiment_dissatisfied</i>
+                                          <i class="material-icons md-36 unhappy">sentiment_dissatisfied</i>
                                       </div>
                                       <div class="recent-post-it-ctn">
                                           <h2>21st Nov</h2>
@@ -305,7 +301,7 @@
                                 <a href="#">
                                     <div class="recent-post-flex rct-pt-mg">
                                       <div class="recent-post-img">
-                                          <i class="material-icons vhappy">sentiment_very_satisfied</i>
+                                          <i class="material-icons md-36 vhappy">sentiment_very_satisfied</i>
                                       </div>
                                       <div class="recent-post-it-ctn">
                                           <h2>22nd Nov</h2>
@@ -341,7 +337,7 @@
                           <div class="add-todo-list notika-shadow mg-t-30">
                               <div class="realtime-ctn">
                                   <div class="realtime-title">
-                                      <h2>Moodie Goals</h2>
+                                      <h1>Moodie Goals</h1>
                                   </div>
                               </div>
                               <div class="card-box">
