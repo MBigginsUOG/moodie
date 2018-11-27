@@ -1,9 +1,9 @@
 // Revealing module pattern to store some global data that will be shared between different functions.
 var d3CalendarGlobals = function() {
     // var calendarWidth = 1380,
-    var calendarWidth = 1000,
+    var calendarWidth = 600,
     // calendarHeight = 820,
-    calendarHeight = 500,
+    calendarHeight = 350,
     gridXTranslation = 10,
     gridYTranslation = 40,
     cellColorForCurrentMonth = '#EAEAEA',
@@ -21,12 +21,8 @@ var d3CalendarGlobals = function() {
     function publicGridHeight() { return calendarHeight - 40; }
     function publicCellWidth() { return publicGridWidth() / 7; }
     function publicCellHeight() { return publicGridHeight() / 5; }
-    function publicGetDatesGroup() {
-        return datesGroup;
-    }
-    function publicSetDatesGroup(value) {
-        datesGroup = value;
-    }
+    function publicGetDatesGroup() { return datesGroup; }
+    function publicSetDatesGroup(value) { datesGroup = value; }
     function publicIncrementCounter() { counter = counter + 1; }
     function publicDecrementCounter() { counter = counter - 1; }
     function publicMonthToDisplay() {
@@ -108,7 +104,7 @@ var d3CalendarGlobals = function() {
         daysInMonth : publicDaysInMonth
     }
 }();
-
+///////////////////////////////////////////////////////////////////////////////////////
 $(document).ready( function (){
                     renderCalendarGrid();
                     renderDaysOfMonth();
@@ -116,18 +112,19 @@ $(document).ready( function (){
                     $('#forward').click(displayNextMonth);
                     }
                     );
-
+///////////////////////////////////////////////////////////////////////////////////////
 function displayPreviousMonth() {
     // We keep track of user's "back" and "forward" presses in this counter
     d3CalendarGlobals.decrementCounter();
     renderDaysOfMonth();
 }
-
+///////////////////////////////////////////////////////////////////////////////////////
 function displayNextMonth(){
     // We keep track of user's "back" and "forward" presses in this counter
     d3CalendarGlobals.incrementCounter();
     renderDaysOfMonth();
 }
+///////////////////////////////////////////////////////////////////////////////////////
 
 // This function is responsible for rendering the days of the month in the grid.
 function renderDaysOfMonth(month, year) {
@@ -157,15 +154,17 @@ function renderDaysOfMonth(month, year) {
     // current month. We just have to use it to fill the rectangle
      .style("fill", function (d) { return d[1]; });
 
-    drawGraphsForMonthlyData();
+    // drawGraphsForMonthlyData();
 
 }
 
+///////////////////////////////////////////////////////////////////////////////////////
+/*
 function drawGraphsForMonthlyData() {
     // Get some random data
     var data = getDataForMonth();
     // Set up variables required to draw a pie chart
-    var outerRadius = d3CalendarGlobals.cellWidth / 3;
+    var outerRadius = d3CalendarGlobals.cellWidth / 6;
     var innerRadius = 0;
     var pie = d3.layout.pie();
     var color = d3.scale.category10();
@@ -229,8 +228,8 @@ function drawGraphsForMonthlyData() {
         });
 
 }
-
-
+*/
+///////////////////////////////////////////////////////////////////////////////////////
 
 // Generates some random data that can be used to draw pie charts.
 function getDataForMonth() {
@@ -242,17 +241,35 @@ function getDataForMonth() {
     return randomData;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////
+
 // This is the initializing function. It adds an svg element, draws a set of rectangles to form the calendar grid,
 // puts text in each cell representing the date and does the initial rendering of the pie charts.
 function renderCalendarGrid(month, year) {
 
     // Add the svg element.
-    d3CalendarGlobals.calendar = d3.select("#chart")
-                 .append("svg")
-                 .attr("class", "calendar")
-                 .attr("width", d3CalendarGlobals.calendarWidth )
-                 .attr("height", d3CalendarGlobals.calendarHeight)
-                 .append("g");
+    // d3CalendarGlobals.calendar = d3.select("#calendarId")
+    //              .append("svg")
+    //              .attr("class", "calendar")
+    //              .attr("width", d3CalendarGlobals.calendarWidth )
+    //              .attr("height", d3CalendarGlobals.calendarHeight)
+    //              .append("g");
+
+     // var	margin = {top: 30, right: 40, bottom: 70, left: 50};
+   d3CalendarGlobals.calendar = d3.select("#calendarId")
+                                 .append("div")
+                                 .classed("svg-container", true)
+                                 .append("svg")
+                                 .attr("class", "calendar")
+                                 .attr("preserveAspectRatio", "xMinYMin meet")
+                                 .attr("viewBox", "0 0 600 400")
+                                 .classed("svg-content-responsive", true)
+                                 // .attr("width", d3CalendarGlobals.calendarWidth )
+                                // .attr("height", d3CalendarGlobals.calendarHeight)
+                               	 .append("g");
+                               	  // .attr("transform",
+                               	            // "translate(" + margin.left + "," + margin.top + ")");
+
 
     // Cell positions are generated and stored globally because they are used by other functions as a reference to render different things.
     var cellPositions = d3CalendarGlobals.gridCellPositions;
