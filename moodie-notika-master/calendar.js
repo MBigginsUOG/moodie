@@ -159,7 +159,7 @@ function renderDaysOfMonth(month, year) {
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
-/*
+
 function drawGraphsForMonthlyData() {
     // Get some random data
     var data = getDataForMonth();
@@ -228,7 +228,7 @@ function drawGraphsForMonthlyData() {
         });
 
 }
-*/
+
 ///////////////////////////////////////////////////////////////////////////////////////
 
 // Generates some random data that can be used to draw pie charts.

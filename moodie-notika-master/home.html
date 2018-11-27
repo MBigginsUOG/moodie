@@ -180,10 +180,15 @@
             <div class="row">
                 <div class="col-lg-7 col-md-8 col-sm-7 col-xs-12">
                     <div class="sale-statistic-inner notika-shadow mg-tb-30">
-                        <div class="curved-inner-pro">
-                            <div class="curved-ctn">
+                        <div class="curved-inner-pro" align="center">
+                            <div class="curved-ctn" align="center">
                                 <h2>Mood Diary</h2>
                                 <p>How are you feeling today?</p>
+                            </div>
+                            <div align="center">
+                                <button id="back" name="back" ><</button>
+                                <label id="currentMonth">May 2013</label>
+                                <button id="forward" name="forward" >></button>
                             </div>
                         </div>
                         <!-- <div id="curved-line-chart" class="flot-chart-sts flot-chart"></div> -->
@@ -222,25 +227,31 @@
                         <!-- work, beach_access (relax), people, favorite (date) , directions_run (sport) , music_note (party)
                              movie, book, videogame_asset, shopping_cart, airplanemode_active, fastfood, color_lens (painting), flar(clear)
                         -->
-                        <div class="btn-demo-notika mg-t-10">
-                          <div class="row">
-                            <div class="button-icon-btn button-icon-btn-cl sm-res-mg-t-10">
-                                <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">      <i class="material-icons md-28">work</i></button>
-                                <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg">            <i class="material-icons">beach_access</i></button>
-                                <button class="btn btn-success success-icon-notika btn-reco-mg btn-button-mg">      <i class="material-icons">people</i></button>
-                                <button class="btn btn-warning warning-icon-notika btn-reco-mg btn-button-mg">      <i class="material-icons">favorite</i></button>
-                                <button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg">        <i class="material-icons">directions_run</i></button>
-                                <button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg">            <i class="material-icons">music_note</i></button>
-                                <button class="btn btn-orange orange-icon-notika btn-reco-mg btn-button-mg">        <i class="material-icons">movie</i></button>
-                                <button class="btn btn-cyan cyan-icon-notika btn-reco-mg btn-button-mg">            <i class="material-icons">book</i></button>
-                                <button class="btn btn-lightgreen lightgreen-icon-notika btn-reco-mg btn-button-mg"><i class="material-icons">videogame_asset</i></button>
-                                <button class="btn btn-lime lime-icon-notika btn-reco-mg btn-button-mg">            <i class="material-icons">shopping_cart</i></button>
-                                <button class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg">          <i class="material-icons">airplanemode_active</i></button>
-                                <button class="btn btn-lightblue lightblue-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">fastfood</i></button>
-                                <button class="btn btn-gray gray-icon-notika btn-reco-mg btn-button-mg">            <i class="material-icons">color_lens</i></button>
-                                <button class="btn btn-lightblue lightblue-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">flare</i></button>
+                        <div class="buttons-area">
+                            <div class="container">
+                        <div class="row">
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="btn-demo-notika mg-t-10">
+                              <div class="button-icon-btn button-icon-btn-cl sm-res-mg-t-10">
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">work</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">beach_access</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">people</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">favorite</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">directions_run</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">music_note</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">movie</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">book</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">videogame_asset</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">shopping_cart</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">airplanemode_active</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">fastfood</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">color_lens</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">flare</i></button>
+                              </div>
                             </div>
                           </div>
+                        </div>
+                        </div>
                         </div>
                         <!-- Diary Text Entry -->
                         <div class="row">
@@ -252,6 +263,7 @@
                                 </div>
                             </div>
                         </div>
+                        <button class="btn btn-primary notika-btn-primary btn-xs">Done</button>
                           <!-- <div class="form-element-list mg-t-30">
                             <div class="row">
                                 <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
@@ -822,6 +834,11 @@
 	<!-- tawk chat JS
 		============================================ -->
     <script src="js/tawk-chat.js"></script>
+
+    <script src="calendar.js"></script>
+
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </body>
 
 </html>
