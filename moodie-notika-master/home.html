@@ -137,7 +137,7 @@
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="inlineRadioOptions" id="vunhappyRadio" value="vunhappy">
                           <label class="form-check-label" for="inlineRadio1">
-                            <i class="material-icons vunhappy md-36" onmouseover="bigMood(this)" onmouseout="regMood(this)">sentiment_very_dissatisfied</i>
+                            <i class="material-icons vunhappy md-36">sentiment_very_dissatisfied</i>
                           </label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -175,20 +175,21 @@
                           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="btn-demo-notika mg-t-10">
                               <div class="button-icon-btn button-icon-btn-cl sm-res-mg-t-10">
-                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">work</i></button>
-                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">beach_access</i></button>
-                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">people</i></button>
-                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">favorite</i></button>
-                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">directions_run</i></button>
-                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">music_note</i></button>
-                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">movie</i></button>
-                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">book</i></button>
-                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">videogame_asset</i></button>
-                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">shopping_cart</i></button>
-                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">airplanemode_active</i></button>
-                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">fastfood</i></button>
-                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">color_lens</i></button>
-                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">flare</i></button>
+                                <!--  onmouseout="regMood(this)" -->
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">work</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">beach_access</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">people</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">favorite</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">directions_run</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">music_note</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">movie</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">book</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">videogame_asset</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">shopping_cart</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">airplanemode_active</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">fastfood</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">color_lens</i></button>
+                                  <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg "onclick="bigMood(this)">  <i class="material-icons">flare</i></button>
                               </div>
                             </div>
                           </div>
@@ -634,14 +635,15 @@
     <!-- End Footer area-->
     <script>
     function bigMood(x) {
-        x.style.height = "64px";
-        x.style.width = "64px";
+        // Dark blue color
+        console.log(x.style.backgroundColor)
+        if (x.style.backgroundColor == "rgb(0, 194, 146)"){
+          x.style.backgroundColor = "#2196F3";
+        } else {
+          x.style.backgroundColor = "#00c292";
+        }
     }
 
-    function regMood(x) {
-        x.style.height = "32px";
-        x.style.width = "32px";
-    }
     </script>
 
     <!-- jquery
