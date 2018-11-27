@@ -237,7 +237,7 @@ function getDataForMonth() {
     for (var i = 0; i < 35; i++) {
         randomData.push([Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100)]);
     }
-    console.log("randomData: " + randomData);
+    // console.log("randomData: " + randomData);
     return randomData;
 }
 
