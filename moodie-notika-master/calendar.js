@@ -154,7 +154,7 @@ function renderDaysOfMonth(month, year) {
     // current month. We just have to use it to fill the rectangle
      .style("fill", function (d) { return d[1]; });
 
-    // drawGraphsForMonthlyData();
+    drawGraphsForMonthlyData();
 
 }
 
@@ -163,6 +163,8 @@ function renderDaysOfMonth(month, year) {
 function drawGraphsForMonthlyData() {
     // Get some random data
     var data = getDataForMonth();
+
+    console.log("data: " + data);
     // Set up variables required to draw a pie chart
     var outerRadius = d3CalendarGlobals.cellWidth / 6;
     var innerRadius = 0;
@@ -203,29 +205,31 @@ function drawGraphsForMonthlyData() {
                       // We use the gridXTranslation and gridYTranslation and multiply it by a factor to move it to the center of the cell. There is probably
                       // a better way of doing this though.
                       var currentDataIndex = d[1];
-                      return "translate(" +  (outerRadius + d3CalendarGlobals.gridXTranslation * 5 + cellPositions[currentDataIndex][0]) + ", " +  (outerRadius + d3CalendarGlobals.gridYTranslation * 1.25 + cellPositions[currentDataIndex][1]) + ")";
+                      return "translate(" +  (outerRadius + d3CalendarGlobals.gridXTranslation * 5 + cellPositions[currentDataIndex][0])
+                                      + ", " +  (outerRadius + d3CalendarGlobals.gridYTranslation * 1.25 + cellPositions[currentDataIndex][1])
+                                      + ")";
                   });
 
-    arcs.append("path")
-        .attr("fill", function (d, i) {
-            // The color is generated using the second index. Each slice of the pie is given a fixed number. This applies to all charts (see the indexing loop above).
-            // This way, by using the index we can generate teh same colors for each of the slices for different charts on different days.
-            return color(d[2]);
-        })
-        .attr("d", function (d, i) {
-            // Standard functions for drawing a pie charts in D3.
-            return arc(d[0]);
-        });
+    // arcs.append("path")
+    //     .attr("fill", function (d, i) {
+    //         // The color is generated using the second index. Each slice of the pie is given a fixed number. This applies to all charts (see the indexing loop above).
+    //         // This way, by using the index we can generate teh same colors for each of the slices for different charts on different days.
+    //         return color(d[2]);
+    //     })
+    //     .attr("d", function (d, i) {
+    //         // Standard functions for drawing a pie charts in D3.
+    //         return arc(d[0]);
+    //     });
 
-    arcs.append("text")
-        .attr("transform", function (d,i) {
-            // Standard functions for drawing a pie charts in D3.
-            return "translate(" + arc.centroid(d[0]) + ")";
-        })
-        .attr("text-anchor", "middle")
-        .text(function(d,i) {
-          return d[0].value;
-        });
+    // arcs.append("text")
+    //     .attr("transform", function (d,i) {
+    //         // Standard functions for drawing a pie charts in D3.
+    //         return "translate(" + arc.centroid(d[0]) + ")";
+    //     })
+    //     .attr("text-anchor", "middle")
+    //     .text(function(d,i) {
+    //       return d[0].value;
+    //     });
 
 }
 
@@ -237,7 +241,6 @@ function getDataForMonth() {
     for (var i = 0; i < 35; i++) {
         randomData.push([Math.floor(Math.random()*100),Math.floor(Math.random()*100),Math.floor(Math.random()*100)]);
     }
-    // console.log("randomData: " + randomData);
     return randomData;
 }
 
