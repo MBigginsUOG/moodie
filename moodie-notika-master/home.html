@@ -1,6 +1,8 @@
 <!doctype html>
 <html class="no-js" lang="">
-
+<!-- Removed modules from main page:
+    notika-status-area
+-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -10,9 +12,10 @@
     <!-- favicon
 		============================================ -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-    <!-- Google Fonts
+    <!-- Google Fonts and Icons
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Bootstrap CSS
 		============================================ -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -125,7 +128,7 @@
 
     <!-- Main Menu area End-->
     <!-- Start Status area -->
-    <div class="notika-status-area">
+    <!-- <div class="notika-status-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
@@ -166,8 +169,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- End Status area-->
+
     <!-- Start Sale Statistic area-->
     <div class="sale-statistic-area">
         <div class="container">
@@ -176,8 +180,8 @@
                     <div class="sale-statistic-inner notika-shadow mg-tb-30">
                         <div class="curved-inner-pro">
                             <div class="curved-ctn">
-                                <h2>Sales Statistics</h2>
-                                <p>Vestibulum purus quam scelerisque, mollis nonummy metus</p>
+                                <h2>Mood Diary</h2>
+                                <p>How are you feeling today?</p>
                             </div>
                         </div>
                         <div id="curved-line-chart" class="flot-chart-sts flot-chart"></div>
@@ -223,6 +227,7 @@
         </div>
     </div>
     <!-- End Sale Statistic area-->
+
     <!-- Start Email Statistic area-->
     <div class="notika-email-post-area">
         <div class="container">
@@ -272,9 +277,13 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <div class="recent-post-wrapper notika-shadow sm-res-mg-t-30 tb-res-ds-n dk-res-ds">
+                      <!-- <i class="material-icons">sentiment_very_dissatisfied</i>
+                      <i class="material-icons">sentiment_dissatisfied</i>
+                      <i class="material-icons">sentiment_satisfied</i>
+                      <i class="material-icons">sentiment_very_satisfied</i> -->
                         <div class="recent-post-ctn">
                             <div class="recent-post-title">
-                                <h2>Recent Posts</h2>
+                                <h2>Moodie Entries</h2>
                             </div>
                         </div>
                         <div class="recent-post-items">
@@ -282,11 +291,11 @@
                                 <a href="#">
                                     <div class="recent-post-flex">
                                         <div class="recent-post-img">
-                                            <img src="img/post/2.jpg" alt="" />
+                                            <i class="material-icons happy">sentiment_satisfied</i>
                                         </div>
                                         <div class="recent-post-it-ctn">
-                                            <h2>Smith</h2>
-                                            <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
+                                            <h2>25th Nov</h2>
+                                            <p>Went to the gym today! Had a great time.</p>
                                         </div>
                                     </div>
                                 </a>
@@ -295,11 +304,11 @@
                                 <a href="#">
                                     <div class="recent-post-flex rct-pt-mg">
                                         <div class="recent-post-img">
-                                            <img src="img/post/1.jpg" alt="" />
+                                            <i class="material-icons vhappy">sentiment_very_satisfied</i>
                                         </div>
                                         <div class="recent-post-it-ctn">
-                                            <h2>John Deo</h2>
-                                            <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
+                                            <h2>24th Nov</h2>
+                                            <p>It was so great to see everyone again!</p>
                                         </div>
                                     </div>
                                 </a>
@@ -308,11 +317,11 @@
                                 <a href="#">
                                     <div class="recent-post-flex rct-pt-mg">
                                         <div class="recent-post-img">
-                                            <img src="img/post/4.jpg" alt="" />
+                                            <i class="material-icons vunhappy">sentiment_very_dissatisfied</i>
                                         </div>
                                         <div class="recent-post-it-ctn">
-                                            <h2>Malika</h2>
-                                            <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
+                                            <h2>22nd Nov</h2>
+                                            <p></p>
                                         </div>
                                     </div>
                                 </a>
@@ -320,26 +329,26 @@
                             <div class="recent-post-signle">
                                 <a href="#">
                                     <div class="recent-post-flex rct-pt-mg">
-                                        <div class="recent-post-img">
-                                            <img src="img/post/2.jpg" alt="" />
-                                        </div>
-                                        <div class="recent-post-it-ctn">
-                                            <h2>Smith</h2>
-                                            <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
-                                        </div>
+                                      <div class="recent-post-img">
+                                          <i class="material-icons unhappy">sentiment_dissatisfied</i>
+                                      </div>
+                                      <div class="recent-post-it-ctn">
+                                          <h2>21st Nov</h2>
+                                          <p>Today was okay. Need to call Mum soon.</p>
+                                      </div>
                                     </div>
                                 </a>
                             </div>
                             <div class="recent-post-signle">
                                 <a href="#">
                                     <div class="recent-post-flex rct-pt-mg">
-                                        <div class="recent-post-img">
-                                            <img src="img/post/1.jpg" alt="" />
-                                        </div>
-                                        <div class="recent-post-it-ctn">
-                                            <h2>John Deo</h2>
-                                            <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
-                                        </div>
+                                      <div class="recent-post-img">
+                                          <i class="material-icons vhappy">sentiment_very_satisfied</i>
+                                      </div>
+                                      <div class="recent-post-it-ctn">
+                                          <h2>22nd Nov</h2>
+                                          <p>Got a lot of work done today! Project is ahead of time.</p>
+                                      </div>
                                     </div>
                                 </a>
                             </div>
@@ -481,7 +490,7 @@
                     <div class="add-todo-list notika-shadow mg-t-30">
                         <div class="realtime-ctn">
                             <div class="realtime-title">
-                                <h2>Add Todo</h2>
+                                <h2>Moodie Goals</h2>
                             </div>
                         </div>
                         <div class="card-box">
