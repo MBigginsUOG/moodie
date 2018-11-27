@@ -62,13 +62,15 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="scatterLine.css">
+    <script src="http://d3js.org/d3.v3.min.js"></script>
 </head>
 
 <body>
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <!-- Start Header Top Area -->
+
+
     <div class="header-top-area">
         <div class="container">
             <div class="row">
@@ -77,102 +79,42 @@
                         <a href="#"><img src="img/logo/logo.png" alt="" /></a>
                     </div>
                 </div>
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div class="header-top-menu">
+                        <ul class="nav navbar-nav notika-top-nav">
+                              <li class="nav-item nc-al">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                                  <span><i class="material-icons">person</i></span>
+                                </a>
+                                <div role="menu" class="dropdown-menu message-dd notification-dd animated zoomIn">
+                                    <div class="hd-message-info">
+                                        <a href="#">
+                                            <div class="hd-message-sn">
+                                                <div class="hd-mg-ctn">
+                                                    <h3>Inspirations</h3>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="hd-message-sn">
+                                                <div class="hd-mg-ctn">
+                                                    <h3>Sign Out/In</h3>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
     <!-- End Header Top Area -->
 
-    <!-- Mobile Menu start -->
-    <!-- <div class="mobile-menu-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="mobile-menu">
-                        <nav id="dropdown">
-                            <ul class="mobile-menu-nav">
-                                <li><a data-toggle="collapse" data-target="#Charts" href="home.html">Home</a></li>
-                                <li><a data-toggle="collapse" data-target="#demoevent" href="calendar.html">Calendar</a></li>
-                                <li><a data-toggle="collapse" data-target="#democrou" href="visualisations.html">Visualisations</a></li>
-                                <li><a data-toggle="collapse" data-target="#demolibra" href="breathing.html">Breathing</a></li>
-                                <li><a data-toggle="collapse" data-target="#demodepart" href="motivations.html">Motivations</a></li>
-                                <li><a data-toggle="collapse" data-target="#demo" href="instructions.html">Instructions</a></li>
-                                <li><a data-toggle="collapse" data-target="#Miscellaneousmob" href="about.html">About</a></li>
-                                <li><a data-toggle="collapse" data-target="#Pagemob" href="registration.html">Registration</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Mobile Menu end -->
-
-    <!-- Main Menu area start-->
-    <div class="main-menu-area mg-tb-40">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
-                        <!-- <li class="active"><a data-toggle="tab" href="#Home"><i class="notika-icon notika-house"></i> Home</a> -->
-                        <li class="active"><a href="home.html"><i class="notika-icon notika-house"></i> Home</a></li>
-                        <li><a href="calendar.html"><i class="notika-icon notika-mail"></i> Calendar</a></li>
-                        <li><a href="visualisations.html"><i class="notika-icon notika-edit"></i> Visualisations</a></li>
-                        <li><a href="breathing.html"><i class="notika-icon notika-bar-chart"></i> Breathing</a></li>
-                        <li><a href="motivations.html"><i class="notika-icon notika-windows"></i> Motivations</a></li>
-                        <li><a href="instructions.html"><i class="notika-icon notika-form"></i> Instructions</a></li>
-                        <li><a href="about.html"><i class="notika-icon notika-app"></i> About</a></li>
-                        <li><a href="registration.html"><i class="notika-icon notika-support"></i> Registration</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Menu area End-->
-    <!-- Start Status area -->
-    <!-- <div class="notika-status-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
-                        <div class="website-traffic-ctn">
-                            <h2><span class="counter">50,000</span></h2>
-                            <p>Total Website Traffics</p>
-                        </div>
-                        <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
-                        <div class="website-traffic-ctn">
-                            <h2><span class="counter">90,000</span>k</h2>
-                            <p>Website Impressions</p>
-                        </div>
-                        <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
-                        <div class="website-traffic-ctn">
-                            <h2>$<span class="counter">40,000</span></h2>
-                            <p>Total Online Sales</p>
-                        </div>
-                        <div class="sparkline-bar-stats3">4,2,8,2,5,6,3,8,3,5,9,5</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
-                        <div class="website-traffic-ctn">
-                            <h2><span class="counter">1,000</span></h2>
-                            <p>Total Support Tickets</p>
-                        </div>
-                        <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- End Status area-->
 
     <!-- Start Sale Statistic area-->
     <div class="sale-statistic-area">
@@ -252,21 +194,7 @@
                                 </div>
                             </div>
                         </div>
-                          <!-- <div class="form-element-list mg-t-30">
-                            <div class="row">
-                                <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="fm-checkbox form-check-inline">
-                                        <label><input type="radio" checked="" class="i-checks"> <i></i> </label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="fm-checkbox form-check-inline">
-                                        <label><input type="radio" checked="" class="i-checks"> <i></i> </label>
-                                    </div>
-                                </div>
-                            </div>
-                          </div> -->
-                        <!-- </div> -->
+                          
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
@@ -315,54 +243,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <!-- <div class="email-statis-inner notika-shadow">
-                        <div class="email-ctn-round">
-                            <div class="email-rdn-hd">
-								<h2>Email Statistics</h2>
-							</div>
-                            <div class="email-statis-wrap">
-                                <div class="email-round-nock">
-                                    <input type="text" class="knob" value="0" data-rel="55" data-linecap="round" data-width="130" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true">
-                                </div>
-                                <div class="email-ctn-nock">
-                                    <p>Total Emails Sent</p>
-                                </div>
-                            </div>
-                            <div class="email-round-gp">
-                                <div class="email-round-pro">
-                                    <div class="email-signle-gp">
-                                        <input type="text" class="knob" value="0" data-rel="75" data-linecap="round" data-width="90" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true" disabled>
-                                    </div>
-                                    <div class="email-ctn-nock">
-                                        <p>Bounce Rate</p>
-                                    </div>
-                                </div>
-                                <div class="email-round-pro">
-                                    <div class="email-signle-gp">
-                                        <input type="text" class="knob" value="0" data-rel="35" data-linecap="round" data-width="90" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true" disabled>
-                                    </div>
-                                    <div class="email-ctn-nock">
-                                        <p>Total Opened</p>
-                                    </div>
-                                </div>
-                                <div class="email-round-pro sm-res-ds-n lg-res-mg-bl">
-                                    <div class="email-signle-gp">
-                                        <input type="text" class="knob" value="0" data-rel="45" data-linecap="round" data-width="90" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true" disabled>
-                                    </div>
-                                    <div class="email-ctn-nock">
-                                        <p>Total Ignored</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <div class="recent-post-wrapper notika-shadow sm-res-mg-t-30 tb-res-ds-n dk-res-ds">
-                      <!-- <i class="material-icons">sentiment_very_dissatisfied</i>
-                      <i class="material-icons">sentiment_dissatisfied</i>
-                      <i class="material-icons">sentiment_satisfied</i>
-                      <i class="material-icons">sentiment_very_satisfied</i> -->
+
                         <div class="recent-post-ctn">
                             <div class="recent-post-title">
                                 <h2>Moodie Entries</h2>
@@ -505,68 +390,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <!-- <div class="realtime-wrap notika-shadow mg-t-30">
-                        <div class="realtime-ctn">
-                            <div class="realtime-title">
-                                <h2>Realtime Visitors</h2>
-                            </div>
-                        </div>
-                        <div class="realtime-visitor-ctn">
-                            <div class="realtime-vst-sg">
-                                <h4><span class="counter">4,35,456</span></h4>
-                                <p>Visitors last 24h</p>
-                            </div>
-                            <div class="realtime-vst-sg">
-                                <h4><span class="counter">4,566</span></h4>
-                                <p>Visitors last 30m</p>
-                            </div>
-                        </div>
-                        <div class="realtime-map">
-                            <div class="vectorjsmarp" id="world-map"></div>
-                        </div>
-                        <div class="realtime-country-ctn realtime-ltd-mg">
-                            <h5>September 4, 21:44:02 (2 Mins 56 Seconds)</h5>
-                            <div class="realtime-ctn-bw">
-                                <div class="realtime-ctn-st">
-                                    <span><img src="img/country/1.png" alt="" /></span> <span>United States</span>
-                                </div>
-                                <div class="realtime-bw">
-                                    <span>Firefox</span>
-                                </div>
-                                <div class="realtime-bw">
-                                    <span>Mac OSX</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="realtime-country-ctn">
-                            <h5>September 7, 20:44:02 (5 Mins 56 Seconds)</h5>
-                            <div class="realtime-ctn-bw">
-                                <div class="realtime-ctn-st">
-                                    <span><img src="img/country/2.png" alt="" /></span> <span>Australia</span>
-                                </div>
-                                <div class="realtime-bw">
-                                    <span>Firefox</span>
-                                </div>
-                                <div class="realtime-bw">
-                                    <span>Mac OSX</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="realtime-country-ctn">
-                            <h5>September 9, 19:44:02 (10 Mins 56 Seconds)</h5>
-                            <div class="realtime-ctn-bw">
-                                <div class="realtime-ctn-st">
-                                    <span><img src="img/country/3.png" alt="" /></span> <span>Brazil</span>
-                                </div>
-                                <div class="realtime-bw">
-                                    <span>Firefox</span>
-                                </div>
-                                <div class="realtime-bw">
-                                    <span>Mac OSX</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <div class="add-todo-list notika-shadow mg-t-30">
@@ -727,6 +551,61 @@
         </div>
     </div>
     <!-- End Realtime sts area-->
+
+    <div class="breadcomb-area">
+  		<div class="container">
+  			<div class="row">
+  				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  					<div class="breadcomb-list" >
+  								  <!-- <div align="center" id='dashboard'></div> -->
+                <div align="center" id='histId'></div>
+                <div align="center" id='pieId'></div>
+                <div align="center" id='legId'></div>
+
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+
+
+    <div class="breadcomb-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="breadcomb-list" >
+              <div align="center" id='scatterLineId'></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="breadcomb-area">
+  		<div class="container">
+  			<div class="row">
+  				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  					<div class="breadcomb-list" >
+              test
+              <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+              <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+              <!-- <link href="Calendar.css" rel="stylesheet" type="text/css" /> -->
+              <link rel="stylesheet" type="text/css" />
+                  <h3> D3 Calendarssss</h3>
+              <div align="center">
+                  <button id="back" name="back" ><</button>
+                  <button id="forward" name="forward" >></button>
+                  <label id="currentMonth">May 2013</label>
+              </div>
+              <div align="center" id="calendarId"></div>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+
+
     <!-- Start Footer area-->
     <div class="footer-copyright-area">
         <div class="container">
@@ -822,6 +701,10 @@
 	<!-- tawk chat JS
 		============================================ -->
     <script src="js/tawk-chat.js"></script>
+
+    <script src="dashboard.js"></script>
+    <script src="scatterLine.js"></script>
+    <script src="calendar.js"></script>
 </body>
 
 </html>
