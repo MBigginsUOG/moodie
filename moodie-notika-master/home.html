@@ -1,21 +1,25 @@
 <!doctype html>
 <html class="no-js" lang="">
-
+<!-- Removed modules from main page:
+    notika-status-area
+-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboard One | Notika - Notika Admin Template</title>
+    <title>Moodie | Dashboard</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
 		============================================ -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-    <!-- Google Fonts
+    <!-- Google Fonts and Icons
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Bootstrap CSS
 		============================================ -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- Bootstrap CSS
 		============================================ -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -45,6 +49,7 @@
     <!-- wave CSS
 		============================================ -->
     <link rel="stylesheet" href="css/wave/waves.min.css">
+    <link rel="stylesheet" href="css/wave/button.css">
     <!-- main CSS
 		============================================ -->
     <link rel="stylesheet" href="css/main.css">
@@ -78,7 +83,7 @@
     <!-- End Header Top Area -->
 
     <!-- Mobile Menu start -->
-    <div class="mobile-menu-area">
+    <!-- <div class="mobile-menu-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -99,7 +104,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Mobile Menu end -->
 
     <!-- Main Menu area start-->
@@ -125,7 +130,7 @@
 
     <!-- Main Menu area End-->
     <!-- Start Status area -->
-    <div class="notika-status-area">
+    <!-- <div class="notika-status-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
@@ -166,21 +171,102 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- End Status area-->
+
     <!-- Start Sale Statistic area-->
     <div class="sale-statistic-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
+                <div class="col-lg-7 col-md-8 col-sm-7 col-xs-12">
                     <div class="sale-statistic-inner notika-shadow mg-tb-30">
                         <div class="curved-inner-pro">
                             <div class="curved-ctn">
-                                <h2>Sales Statistics</h2>
-                                <p>Vestibulum purus quam scelerisque, mollis nonummy metus</p>
+                                <h2>Mood Diary</h2>
+                                <p>How are you feeling today?</p>
                             </div>
                         </div>
-                        <div id="curved-line-chart" class="flot-chart-sts flot-chart"></div>
+                        <!-- <div id="curved-line-chart" class="flot-chart-sts flot-chart"></div> -->
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="vunhappyRadio" value="vunhappy">
+                          <label class="form-check-label" for="inlineRadio1">
+                            <i class="material-icons vunhappy md-36" onmouseover="bigMood(this)" onmouseout="regMood(this)">sentiment_very_dissatisfied</i>
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="unhappyRadio" value="unhappy">
+                          <label class="form-check-label" for="inlineRadio2">
+                            <i class="material-icons unhappy md-36">sentiment_dissatisfied</i>
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="neutralRadio" value="neutral">
+                          <label class="form-check-label" for="inlineRadio3">
+                            <i class="material-icons neutral md-36">sentiment_neutral</i>
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="happyRadio" value="happy">
+                          <label class="form-check-label" for="inlineRadio4">
+                            <i class="material-icons happy md-36">sentiment_satisfied</i>
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="vhappyRadio" value="vhappy">
+                          <label class="form-check-label" for="inlineRadio5">
+                            <i class="material-icons vhappy md-36">sentiment_very_satisfied</i>
+                          </label>
+                        </div>
+
+                        <!-- Activites -->
+                        <!-- work, beach_access (relax), people, favorite (date) , directions_run (sport) , music_note (party)
+                             movie, book, videogame_asset, shopping_cart, airplanemode_active, fastfood, color_lens (painting), flar(clear)
+                        -->
+                        <div class="btn-demo-notika mg-t-10">
+                          <div class="row">
+                            <div class="button-icon-btn button-icon-btn-cl sm-res-mg-t-10">
+                                <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg">      <i class="material-icons md-28">work</i></button>
+                                <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg">            <i class="material-icons">beach_access</i></button>
+                                <button class="btn btn-success success-icon-notika btn-reco-mg btn-button-mg">      <i class="material-icons">people</i></button>
+                                <button class="btn btn-warning warning-icon-notika btn-reco-mg btn-button-mg">      <i class="material-icons">favorite</i></button>
+                                <button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg">        <i class="material-icons">directions_run</i></button>
+                                <button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg">            <i class="material-icons">music_note</i></button>
+                                <button class="btn btn-orange orange-icon-notika btn-reco-mg btn-button-mg">        <i class="material-icons">movie</i></button>
+                                <button class="btn btn-cyan cyan-icon-notika btn-reco-mg btn-button-mg">            <i class="material-icons">book</i></button>
+                                <button class="btn btn-lightgreen lightgreen-icon-notika btn-reco-mg btn-button-mg"><i class="material-icons">videogame_asset</i></button>
+                                <button class="btn btn-lime lime-icon-notika btn-reco-mg btn-button-mg">            <i class="material-icons">shopping_cart</i></button>
+                                <button class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg">          <i class="material-icons">airplanemode_active</i></button>
+                                <button class="btn btn-lightblue lightblue-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">fastfood</i></button>
+                                <button class="btn btn-gray gray-icon-notika btn-reco-mg btn-button-mg">            <i class="material-icons">color_lens</i></button>
+                                <button class="btn btn-lightblue lightblue-icon-notika btn-reco-mg btn-button-mg">  <i class="material-icons">flare</i></button>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Diary Text Entry -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <div class="nk-int-st">
+                                        <textarea class="form-control auto-size" rows="2" placeholder="Any thoughts to share about the day...?"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                          <!-- <div class="form-element-list mg-t-30">
+                            <div class="row">
+                                <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="fm-checkbox form-check-inline">
+                                        <label><input type="radio" checked="" class="i-checks"> <i></i> </label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="fm-checkbox form-check-inline">
+                                        <label><input type="radio" checked="" class="i-checks"> <i></i> </label>
+                                    </div>
+                                </div>
+                            </div>
+                          </div> -->
+                        <!-- </div> -->
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
@@ -223,12 +309,13 @@
         </div>
     </div>
     <!-- End Sale Statistic area-->
+
     <!-- Start Email Statistic area-->
     <div class="notika-email-post-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="email-statis-inner notika-shadow">
+                    <!-- <div class="email-statis-inner notika-shadow">
                         <div class="email-ctn-round">
                             <div class="email-rdn-hd">
 								<h2>Email Statistics</h2>
@@ -268,13 +355,17 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <div class="recent-post-wrapper notika-shadow sm-res-mg-t-30 tb-res-ds-n dk-res-ds">
+                      <!-- <i class="material-icons">sentiment_very_dissatisfied</i>
+                      <i class="material-icons">sentiment_dissatisfied</i>
+                      <i class="material-icons">sentiment_satisfied</i>
+                      <i class="material-icons">sentiment_very_satisfied</i> -->
                         <div class="recent-post-ctn">
                             <div class="recent-post-title">
-                                <h2>Recent Posts</h2>
+                                <h2>Moodie Entries</h2>
                             </div>
                         </div>
                         <div class="recent-post-items">
@@ -282,11 +373,11 @@
                                 <a href="#">
                                     <div class="recent-post-flex">
                                         <div class="recent-post-img">
-                                            <img src="img/post/2.jpg" alt="" />
+                                            <i class="material-icons happy">sentiment_satisfied</i>
                                         </div>
                                         <div class="recent-post-it-ctn">
-                                            <h2>Smith</h2>
-                                            <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
+                                            <h2>25th Nov</h2>
+                                            <p>Went to the gym today! Had a great time.</p>
                                         </div>
                                     </div>
                                 </a>
@@ -295,11 +386,11 @@
                                 <a href="#">
                                     <div class="recent-post-flex rct-pt-mg">
                                         <div class="recent-post-img">
-                                            <img src="img/post/1.jpg" alt="" />
+                                            <i class="material-icons vhappy">sentiment_very_satisfied</i>
                                         </div>
                                         <div class="recent-post-it-ctn">
-                                            <h2>John Deo</h2>
-                                            <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
+                                            <h2>24th Nov</h2>
+                                            <p>It was so great to see everyone again!</p>
                                         </div>
                                     </div>
                                 </a>
@@ -308,11 +399,11 @@
                                 <a href="#">
                                     <div class="recent-post-flex rct-pt-mg">
                                         <div class="recent-post-img">
-                                            <img src="img/post/4.jpg" alt="" />
+                                            <i class="material-icons vunhappy">sentiment_very_dissatisfied</i>
                                         </div>
                                         <div class="recent-post-it-ctn">
-                                            <h2>Malika</h2>
-                                            <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
+                                            <h2>22nd Nov</h2>
+                                            <p></p>
                                         </div>
                                     </div>
                                 </a>
@@ -320,26 +411,26 @@
                             <div class="recent-post-signle">
                                 <a href="#">
                                     <div class="recent-post-flex rct-pt-mg">
-                                        <div class="recent-post-img">
-                                            <img src="img/post/2.jpg" alt="" />
-                                        </div>
-                                        <div class="recent-post-it-ctn">
-                                            <h2>Smith</h2>
-                                            <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
-                                        </div>
+                                      <div class="recent-post-img">
+                                          <i class="material-icons unhappy">sentiment_dissatisfied</i>
+                                      </div>
+                                      <div class="recent-post-it-ctn">
+                                          <h2>21st Nov</h2>
+                                          <p>Today was okay. Need to call Mum soon.</p>
+                                      </div>
                                     </div>
                                 </a>
                             </div>
                             <div class="recent-post-signle">
                                 <a href="#">
                                     <div class="recent-post-flex rct-pt-mg">
-                                        <div class="recent-post-img">
-                                            <img src="img/post/1.jpg" alt="" />
-                                        </div>
-                                        <div class="recent-post-it-ctn">
-                                            <h2>John Deo</h2>
-                                            <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
-                                        </div>
+                                      <div class="recent-post-img">
+                                          <i class="material-icons vhappy">sentiment_very_satisfied</i>
+                                      </div>
+                                      <div class="recent-post-it-ctn">
+                                          <h2>22nd Nov</h2>
+                                          <p>Got a lot of work done today! Project is ahead of time.</p>
+                                      </div>
                                     </div>
                                 </a>
                             </div>
@@ -414,7 +505,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="realtime-wrap notika-shadow mg-t-30">
+                    <!-- <div class="realtime-wrap notika-shadow mg-t-30">
                         <div class="realtime-ctn">
                             <div class="realtime-title">
                                 <h2>Realtime Visitors</h2>
@@ -475,13 +566,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <div class="add-todo-list notika-shadow mg-t-30">
                         <div class="realtime-ctn">
                             <div class="realtime-title">
-                                <h2>Add Todo</h2>
+                                <h2>Moodie Goals</h2>
                             </div>
                         </div>
                         <div class="card-box">
@@ -650,6 +741,18 @@
         </div>
     </div>
     <!-- End Footer area-->
+    <script>
+    function bigMood(x) {
+        x.style.height = "64px";
+        x.style.width = "64px";
+    }
+
+    function regMood(x) {
+        x.style.height = "32px";
+        x.style.width = "32px";
+    }
+    </script>
+
     <!-- jquery
 		============================================ -->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
