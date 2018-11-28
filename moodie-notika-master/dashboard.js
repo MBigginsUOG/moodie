@@ -1,13 +1,13 @@
 var freqData=[
-{Activity:'Exercised',freq:{awful:42, bad:86, meh:19, good:249, rad:949}}
-,{Activity:'AZ',freq:{awful:34, bad:1101, meh:412, good:674, rad:99}}
-,{Activity:'CT',freq:{awful:44, bad:932, meh:219, good:418, rad:199}}
-,{Activity:'Cleaned',freq:{awful:74, bad:32, meh:152, good:1862, rad:99}}
-,{Activity:'GA',freq:{awful:4, bad:119, meh:167, good:163, rad:99}}
-,{Activity:'Socialised',freq:{awful:444, bad:1819, meh:247, good:1203, rad:99}}
-,{Activity:'IL',freq:{awful:4, bad:448, meh:3852, good:942, rad:99}}
-,{Activity:'Date',freq:{awful:34, bad:797, meh:1849, good:134, rad:99}}
-,{Activity:'KS',freq:{awful:43, bad:162, meh:379, good:471, rad:969}}
+{Activity:'Sport',freq:{awful:3, bad:7, meh:10, good:15, rad:23}}
+// ,{Activity:'AZ',freq:{awful:34, bad:1101, meh:412, good:674, rad:99}}
+// ,{Activity:'CT',freq:{awful:44, bad:932, meh:219, good:418, rad:199}}
+,{Activity:'Clean',freq:{awful:4, bad:2, meh:5, good:3, rad:10}}
+// ,{Activity:'GA',freq:{awful:4, bad:119, meh:167, good:163, rad:99}}
+,{Activity:'Friends',freq:{awful:5, bad:2, meh:10, good:17, rad:20}}
+// ,{Activity:'IL',freq:{awful:4, bad:448, meh:3852, good:942, rad:99}}
+,{Activity:'Date',freq:{awful:0, bad:1, meh:2, good:6, rad:5}}
+// ,{Activity:'KS',freq:{awful:43, bad:162, meh:379, good:471, rad:969}}
 ];
 
 // dashboard('#dashboard',freqData);
@@ -18,13 +18,13 @@ function dashboard(histId, legId, pieId, fData){
 
   var	margin = {top: 30, right: 40, bottom: 70, left: 50};
 
-  var barColor = 'steelblue';
+  var barColor = '#2196F3';
   function segColor(c){ return {
                                   awful:"#e21818",
                                   bad:"#FB8C00",
                                   meh:"#fbd300",
                                   good:"#79e65e",
-                                  rad:"298e00"
+                                  rad:"#298e00"
                                 }[c];
                         }
   // compute total for each Activity.
@@ -57,7 +57,9 @@ function dashboard(histId, legId, pieId, fData){
       .attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")")
       .append("g")
       .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
+            "translate(" + margin.left + "," + margin.top + ")")
+      .style("font-size","35px");
+
 
         // create function for x-axis mapping.
         var x = d3.scale.ordinal().rangeRoundBands([0, hGDim.w], 0.1)
@@ -66,7 +68,8 @@ function dashboard(histId, legId, pieId, fData){
         // Add x-axis to the histogram svg.
         hGsvg.append("g").attr("class", "x axis")
             .attr("transform", "translate(0," + hGDim.h + ")")
-            .call(d3.svg.axis().scale(x).orient("bottom"));
+            .call(d3.svg.axis().scale(x).orient("bottom"))
+            .style("font-size","30px");
 
         // Create function for y-axis map.
         var y = d3.scale.linear().range([hGDim.h, 0])
@@ -153,6 +156,7 @@ function dashboard(histId, legId, pieId, fData){
         piesvg.selectAll("path").data(pie(pD)).enter().append("path").attr("d", arc)
             .each(function(d) { this._current = d; })
             .style("fill", function(d) { return segColor(d.data.type); })
+            .style('stroke', 'white')
             .on("mouseover",mouseover).on("mouseout",mouseout);
 
         // create function to update pie-chart. This will be used by histogram.
