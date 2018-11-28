@@ -1,0 +1,581 @@
+<!doctype html>
+<html class="no-js" lang="">
+<!-- Removed modules from main page:
+    notika-status-area
+-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Moodie | Dashboard</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+		============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Google Fonts and Icons
+		============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
+    <link rel="stylesheet" href="css/owl.transitions.css">
+    <!-- meanmenu CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/meanmenu/meanmenu.min.css">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- jvectormap CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/jvectormap/jquery-jvectormap-2.0.3.css">
+    <!-- notika icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/notika-custom-icon.css">
+    <!-- wave CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/wave/waves.min.css">
+    <link rel="stylesheet" href="css/wave/button.css">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="style.css">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- modernizr JS
+		============================================ -->
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="scatterLine.css">
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+
+<body>
+
+    <div class="header-top-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="logo-area">
+                        <a href="#"><img src="img/logo/logo.png" alt="" /></a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div class="header-top-menu">
+                        <ul class="nav navbar-nav notika-top-nav">
+                              <li class="nav-item nc-al">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                                  <span><i class="material-icons">person</i></span>
+                                </a>
+                                <div role="menu" class="dropdown-menu message-dd notification-dd animated zoomIn">
+                                    <div class="hd-message-info">
+                                        <a href="#">
+                                            <div class="hd-message-sn">
+                                                <div class="hd-mg-ctn">
+                                                    <h3>Sign Out/In</h3>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--  End Header Top Area ---------------------------------------------->
+
+
+    <div class="sale-statistic-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+                    <div class="sale-statistic-inner notika-shadow mg-tb-30">
+                        <div class="curved-inner-pro" align="center">
+                            <div class="curved-ctn" align="center">
+                                <h1>Mood Diary</h1>
+                            </div>
+                            <div align="center">
+                                <!-- <button id="back" name="back" ><</button> -->
+                                <!-- <label id="currentMonth">May 2013</label> -->
+                                <!-- <button id="forward" name="forward" >></button> -->
+                            </div>
+                            <div class="curved-ctn" align="center">
+                                <p style="font-size: 30px"><b>28th Nov</b><i style="visibility:hidden" class="material-icons happy md-48" id="doneTick">done</i></p>
+                                <h2>How are you feeling today?</h2>
+                            </div>
+                        </div>
+                        <!-- <div id="curved-line-chart" class="flot-chart-sts flot-chart"></div> -->
+                        <div class="curved-ctn" id="Mood Diary" align="center">
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="vunhappyRadio" value="vunhappy">
+                            <label class="form-check-label" for="inlineRadio1">
+                              <i class="material-icons vunhappy md-48">sentiment_very_dissatisfied</i>
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="unhappyRadio" value="unhappy">
+                            <label class="form-check-label" for="inlineRadio2">
+                              <i class="material-icons unhappy md-48">sentiment_dissatisfied</i>
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="neutralRadio" value="neutral">
+                            <label class="form-check-label" for="inlineRadio3">
+                              <i class="material-icons neutral md-48">sentiment_neutral</i>
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="happyRadio" value="happy">
+                            <label class="form-check-label" for="inlineRadio4">
+                              <i class="material-icons happy md-48">sentiment_satisfied</i>
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="vhappyRadio" value="vhappy">
+                            <label class="form-check-label" for="inlineRadio5">
+                              <i class="material-icons vhappy md-48">sentiment_very_satisfied</i>
+                            </label>
+                          </div>
+                        </div>
+                        <!-- Activites -->
+                        <!-- work, beach_access (relax), people, favorite (date) , directions_run (sport) , music_note (party)
+                             movie, book, videogame_asset, shopping_cart, airplanemode_active, fastfood, color_lens (painting), flar(clear)
+                        -->
+                        <div class="curved-ctn" id="ActivitiesSection" align="center">
+                              <h2>What did you get up to today?</h2>
+                            <div class="buttons-area">
+                              <div class="btn-demo-notika mg-t-10">
+                                <div class="button-icon-btn button-icon-btn-cl sm-res-mg-t-10">
+                                    <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">work</i> Work</button>
+                                    <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">people</i> Friends</button>
+                                    <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">directions_run</i> Sport</button>
+                                    <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">book</i> Read</button>
+                                    <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">beach_access</i> Relax</button>
+                                    <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">shopping_cart</i> Shop</button>
+                                    <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg "onclick="bigMood(this)">  <i class="material-icons">flare</i> Clean</button>
+                                    <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">color_lens</i> Art</button>
+                                    <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">fastfood</i> Food</button>
+                                    <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">music_note</i> Party</button>
+                                    <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">airplanemode_active</i> Travel</button>
+                                    <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">movie</i> Movie</button>
+                                    <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">videogame_asset</i> Games</button>
+                                    <button class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">favorite</i> Date</button>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <!-- Diary Text Entry -->
+                                <div class="form-group">
+                                    <div class="nk-int-st">
+                                        <textarea class="form-control auto-size" rows="2" placeholder="Any thoughts to share about the day...?"></textarea>
+                                    </div>
+                                </div>
+                        <button class="btn btn-primary notika-btn-primary btn-xs" onclick="unhideTick()">Done</button>
+                    </div>
+
+                </div>
+                      <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+                          <div class="statistic-right-area notika-shadow mg-tb-30 sm-res-mg-t-0">
+                              <div class="past-day-statis" align="center">
+                                  <h1>Calendar</h1>
+                              </div>
+                              <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+                              <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+                              <link rel="stylesheet" type="text/css" />
+                              <div align="center">
+                                  <button id="back" name="back" ><</button>
+
+
+                                  <label id="currentMonth">Nov 2018</label>
+                                  <button id="forward" name="forward" >></button>
+
+                              </div>
+                              <div align="center" id="calendarId"></div>
+                              <!-- <div align="center" id="testId">test</div>
+                              <i id="icon" class="material-icons">play_arrow</i>
+                              <i id="icon2" class="material-icons"></i>
+                              <i class="material-icons unhappy md-48">sentiment_dissatisfied</i>
+                              <div id="icon3"></div> -->
+                          </div>
+
+                      </div>
+
+            </div>
+        </div>
+    </div>
+
+
+<!--  End ---------------------------------------------->
+
+<!--  End Header Top Area ---------------------------------------------->
+
+
+    <div class="sale-statistic-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+
+                    <div class="recent-post-wrapper notika-shadow sm-res-mg-t-30 tb-res-ds-n dk-res-ds">
+                        <div class="recent-post-ctn">
+                            <div class="recent-post-title" align="center">
+                                <h1>Moodie Entries</h1>
+                            </div>
+                        </div>
+                        <div class="recent-post-items">
+                            <div class="recent-post-signle rct-pt-mg-wp">
+                                <a href="#">
+                                    <div class="recent-post-flex">
+                                        <div class="recent-post-img">
+                                            <i class="material-icons md-36 happy">sentiment_satisfied</i>
+                                        </div>
+                                        <div class="recent-post-it-ctn">
+                                            <h2>25th Nov</h2>
+                                            <p>Went to the gym today! Had a great time.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="recent-post-signle">
+                                <a href="#">
+                                    <div class="recent-post-flex rct-pt-mg">
+                                        <div class="recent-post-img">
+                                            <i class="material-icons md-36 vhappy">sentiment_very_satisfied</i>
+                                        </div>
+                                        <div class="recent-post-it-ctn">
+                                            <h2>24th Nov</h2>
+                                            <p>It was so great to see everyone again!</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="recent-post-signle">
+                                <a href="#">
+                                    <div class="recent-post-flex rct-pt-mg">
+                                        <div class="recent-post-img">
+                                            <i class="material-icons md-36 vunhappy">sentiment_very_dissatisfied</i>
+                                        </div>
+                                        <div class="recent-post-it-ctn">
+                                            <h2>22nd Nov</h2>
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="recent-post-signle">
+                                <a href="#">
+                                    <div class="recent-post-flex rct-pt-mg">
+                                      <div class="recent-post-img">
+                                          <i class="material-icons md-36 unhappy">sentiment_dissatisfied</i>
+                                      </div>
+                                      <div class="recent-post-it-ctn">
+                                          <h2>21st Nov</h2>
+                                          <p>Today was okay. Need to call Mum soon.</p>
+                                      </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="recent-post-signle">
+                                <a href="#">
+                                    <div class="recent-post-flex rct-pt-mg">
+                                      <div class="recent-post-img">
+                                          <i class="material-icons md-36 vhappy">sentiment_very_satisfied</i>
+                                      </div>
+                                      <div class="recent-post-it-ctn">
+                                          <h2>22nd Nov</h2>
+                                          <p>Got a lot of work done today! Project is ahead of time.</p>
+                                      </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="recent-post-signle">
+                                <a href="#">
+                                    <div class="recent-post-flex rc-ps-vw">
+                                        <div class="recent-post-line rct-pt-mg">
+                                            <p>View All</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                      <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+
+                          <div class="add-todo-list notika-shadow mg-t-30">
+                              <div class="realtime-ctn">
+                                  <div class="realtime-title" align="center">
+                                      <h1>Moodie Goals</h1>
+                                  </div>
+                              </div>
+                              <div class="card-box">
+                                  <div class="todoapp">
+                                      <div class="row">
+                                          <div class="col-sm-6 col-md-6 col-sm-6 col-xs-12">
+                                              <h4 id="todo-message"><span id="todo-remaining"></span> of <span id="todo-total"></span> remaining</h4>
+                                          </div>
+                                          <div class="col-sm-6 col-md-6 col-sm-6 col-xs-12">
+                                              <div class="notika-todo-btn">
+                                                  <a href="#" class="pull-right btn btn-primary btn-sm" id="btn-archive">Archive</a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="notika-todo-scrollbar">
+                                          <ul class="list-group no-margn todo-list" id="todo-list"></ul>
+                                      </div>
+                                      <div id="todo-form">
+                                          <div class="row">
+                                              <div class="col-sm-12 col-md-12 col-sm-12 col-xs-12 todo-inputbar">
+                                                  <div class="form-group todo-flex">
+                                                      <div class="nk-int-st">
+                                                          <input type="text" id="todo-input-text" name="todo-input-text" class="form-control" placeholder="Add new todo">
+                                                      </div>
+                                                      <div class="todo-send">
+                                                          <button class="btn-primary btn-md btn-block btn notika-add-todo" type="button" id="todo-btn-submit">Add</button>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--  End ---------------------------------------------->
+
+<br>
+
+    <!--  End Header Top Area ---------------------------------------------->
+
+    <div class="notika-email-post-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
+                    <div class="email-statis-inner notika-shadow">
+                        <div class="email-ctn-round">
+                            <div class="email-rdn-hd">
+                              <h1 style="text-align:center">Moodie Activities</h1>
+                              Breakdown of activities completed
+                            </div>
+
+                            <div align="center" id='histId'></div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="recent-post-wrapper notika-shadow sm-res-mg-t-30 tb-res-ds-n dk-res-ds">
+                        <div class="recent-post-ctn" align="center">
+
+                            <div class="recent-post-title">
+                                <h1>Moodie Chart</h1>
+                                Breakdown of moods - hover over a section to see the activities contributing to that section!
+                            </div>
+
+                            <div align="center" id='pieId'></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="recent-items-wp notika-shadow sm-res-mg-t-30">
+                        <div class="rc-it-ltd">
+                            <div class="recent-items-ctn" align="center">
+                                <div class="recent-items-title">
+                                    <h1>Moodie Breakdown</h1>
+                                    Percentage breakdown of moods
+                                </div>
+
+                                <div align="center" id='legId'></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<br>
+
+    <!--  End ---------------------------------------------->
+    <div class="breadcomb-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="breadcomb-list" align="center">
+              <h1> Moodie Tracker </h1>
+              <button id="sportButton" style="background-color:#00c292" class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg"onclick="bigMood(this)">  <i class="material-icons">directions_run</i> Sport</button>
+              <button id="cleanButton" style="background-color:#00c292" class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg "onclick="bigMood(this)">  <i class="material-icons">flare</i> Clean</button>
+              <button id="friendsButton" style="background-color:#00c292" class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">people</i> Friends</button>
+              <button id="dateButton" style="background-color:#00c292" class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">favorite</i> Date</button>
+              <br>Click on an activity to show or hide it from the graph
+              <div align="center" id='scatterLineId'></div>
+
+            </div>
+
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="breadcomb-list" >
+              <div align="center">
+                <h1>Moodie Cloud</h1>
+                Size indicate relative frequency and colour indicates how that activity contributed to your mood on average
+                <img src="img/wordcloud.png"
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- Start Footer area ---------------------------------------------->
+    <div class="footer-copyright-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="footer-copy-right">
+                      <p>Moodie Web App created by Team Banana Muffin: Laura Moreby, Matthew Biggins, Frances Ramirez.<br>
+                      Copyright © 2018  . All rights reserved. CSS Template by <a href="https://colorlib.com">Colorlib</a>.
+                      </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer area-->
+
+    <script>
+      function bigMood(x) {
+          // Dark blue color
+          // console.log(x.style.backgroundColor)
+          if (x.style.backgroundColor == "rgb(0, 194, 146)"){
+            x.style.backgroundColor = "#2196F3";
+          } else {
+            x.style.backgroundColor = "#00c292";
+          }
+      }
+    </script>
+
+    <script>
+      function unhideTick() {
+        document.getElementById("doneTick").style.visibility = "visible";
+      }
+    </script>
+
+    <!-- jquery
+		============================================ -->
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- wow JS
+		============================================ -->
+    <script src="js/wow.min.js"></script>
+    <!-- price-slider JS
+		============================================ -->
+    <script src="js/jquery-price-slider.js"></script>
+    <!-- owl.carousel JS
+		============================================ -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="js/meanmenu/jquery.meanmenu.js"></script>
+    <!-- counterup JS
+		============================================ -->
+    <script src="js/counterup/jquery.counterup.min.js"></script>
+    <script src="js/counterup/waypoints.min.js"></script>
+    <script src="js/counterup/counterup-active.js"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- jvectormap JS
+		============================================ -->
+    <script src="js/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="js/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="js/jvectormap/jvectormap-active.js"></script>
+    <!-- sparkline JS
+		============================================ -->
+    <script src="js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="js/sparkline/sparkline-active.js"></script>
+    <!-- sparkline JS
+		============================================ -->
+    <script src="js/flot/jquery.flot.js"></script>
+    <script src="js/flot/jquery.flot.resize.js"></script>
+    <script src="js/flot/curvedLines.js"></script>
+    <script src="js/flot/flot-active.js"></script>
+    <!-- knob JS
+		============================================ -->
+    <script src="js/knob/jquery.knob.js"></script>
+    <script src="js/knob/jquery.appear.js"></script>
+    <script src="js/knob/knob-active.js"></script>
+    <!--  wave JS
+		============================================ -->
+    <script src="js/wave/waves.min.js"></script>
+    <script src="js/wave/wave-active.js"></script>
+    <!--  todo JS
+		============================================ -->
+    <script src="js/todo/jquery.todo.js"></script>
+    <!-- plugins JS
+		============================================ -->
+    <script src="js/plugins.js"></script>
+	<!--  Chat JS
+		============================================ -->
+    <script src="js/chat/moment.min.js"></script>
+    <script src="js/chat/jquery.chat.js"></script>
+    <!-- main JS
+		============================================ -->
+    <script src="js/main.js"></script>
+	<!-- tawk chat JS
+		============================================ -->
+    <script src="js/tawk-chat.js"></script>
+
+
+
+
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="scatterLine.js"></script>
+    <script src="calendar.js"></script>
+
+</body>
+
+</html>
