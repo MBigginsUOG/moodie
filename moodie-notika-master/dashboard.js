@@ -20,11 +20,11 @@ function dashboard(histId, legId, pieId, fData){
 
   var barColor = 'steelblue';
   function segColor(c){ return {
-                                  awful:"green",
-                                  bad:"#807dba",
-                                  meh:"#e08214",
-                                  good:"#41ab5d",
-                                  rad:"yellow"
+                                  awful:"#e21818",
+                                  bad:"#FB8C00",
+                                  meh:"#fbd300",
+                                  good:"#79e65e",
+                                  rad:"298e00"
                                 }[c];
                         }
   // compute total for each Activity.
