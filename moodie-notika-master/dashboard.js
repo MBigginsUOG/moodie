@@ -167,6 +167,7 @@ function dashboard(histId, legId, pieId, fData){
             .each(function(d) { this._current = d; })
             .style("fill", function(d) { return segColor(d.data.type); })
             .style('stroke', 'white')
+            .style('stroke-width', 5)
             .on("mouseover",mouseover).on("mouseout",mouseout);
 
         // create function to update pie-chart. This will be used by histogram.
