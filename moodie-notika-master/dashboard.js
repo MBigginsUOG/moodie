@@ -79,7 +79,7 @@ function dashboard(histId, legId, pieId, fData){
         hGsvg.append("g").attr("class", "x axis")
             .attr("transform", "translate(0," + hGDim.h + ")")
             .call(d3.svg.axis().scale(x).orient("bottom"))
-            .style("font-size","30px");
+            .style("font-size","22px");
 
         // Create function for y-axis map.
         var y = d3.scale.linear().range([hGDim.h, 0])
