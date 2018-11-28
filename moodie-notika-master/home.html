@@ -433,8 +433,14 @@
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="breadcomb-list" align="center">
               <h1> Moodie Tracker </h1>
+              <button id="sportButton" class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg"onclick="bigMood(this)">  <i class="material-icons">directions_run</i> Sport</button>
+              <button id="cleanButton" class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg "onclick="bigMood(this)">  <i class="material-icons">flare</i> Clean</button>
+              <button id="friendsButton" class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">people</i> Friends</button>
+              <button id="dateButton" class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">favorite</i> Date</button>
               <div align="center" id='scatterLineId'></div>
+
             </div>
+
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="breadcomb-list" >
@@ -470,7 +476,7 @@
     <script>
       function bigMood(x) {
           // Dark blue color
-          console.log(x.style.backgroundColor)
+          // console.log(x.style.backgroundColor)
           if (x.style.backgroundColor == "rgb(0, 194, 146)"){
             x.style.backgroundColor = "#2196F3";
           } else {
