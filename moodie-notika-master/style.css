@@ -53,7 +53,7 @@
 -----------------------------------------------------------------------------------*/
 
 /*----------------------------------------*/
-/*  a.  Likert Icons
+/*  a.  Custom CSS
 /*----------------------------------------*/
 .material-icons.vhappy { color: #298e00; }
 .material-icons.happy { color: #79e65e; }
@@ -64,6 +64,8 @@
 .material-icons.md-24 { font-size: 24px; }
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
+
+/* h1 { color: #00b6c2} */
 
 
 /* #doneTick { visibility: "hidden"; } */
