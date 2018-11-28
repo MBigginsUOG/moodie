@@ -106,12 +106,13 @@ var d3CalendarGlobals = function() {
 }();
 ///////////////////////////////////////////////////////////////////////////////////////
 $(document).ready( function (){
-                    renderCalendarGrid();
-                    renderDaysOfMonth();
-                    $('#back').click(displayPreviousMonth);
-                    $('#forward').click(displayNextMonth);
-                    }
-                    );
+                      renderCalendarGrid();
+                      renderDaysOfMonth();
+                      $('#back').click(displayPreviousMonth);
+                      $('#forward').click(displayNextMonth);
+                    });
+
+
 ///////////////////////////////////////////////////////////////////////////////////////
 function displayPreviousMonth() {
     // We keep track of user's "back" and "forward" presses in this counter
@@ -164,7 +165,7 @@ function drawGraphsForMonthlyData() {
     // Get some random data
     var data = getDataForMonth();
 
-    console.log("data: " + data);
+    // console.log("data: " + data);
     // Set up variables required to draw a pie chart
     var outerRadius = d3CalendarGlobals.cellWidth / 6;
     var innerRadius = 0;
@@ -175,6 +176,7 @@ function drawGraphsForMonthlyData() {
     // We need to index and group the pie charts and slices generated so that they can be rendered in
     // the appropriate cells. To do that, we call D3's 'pie' function of each of the data elements.
     var indexedPieData = [];
+
     for (i = 0; i < data.length; i++) {
         var pieSlices = pie(data[i]);
         // This loop is to store an index (j) for each of the slices of a given pie chart. Two different charts
@@ -188,9 +190,9 @@ function drawGraphsForMonthlyData() {
 
     var cellPositions = d3CalendarGlobals.gridCellPositions;
 
-    d3CalendarGlobals.chartsGroup
-            .selectAll("g.arc")
-            .remove();
+    // d3CalendarGlobals.chartsGroup
+    //         .selectAll("g.arc")
+    //         .remove();
 
 
     var arcs = d3CalendarGlobals.chartsGroup.selectAll("g.arc")
@@ -210,29 +212,40 @@ function drawGraphsForMonthlyData() {
                                       + ")";
                   });
 
-    // arcs.append("path")
-    //     .attr("fill", function (d, i) {
-    //         // The color is generated using the second index. Each slice of the pie is given a fixed number. This applies to all charts (see the indexing loop above).
-    //         // This way, by using the index we can generate teh same colors for each of the slices for different charts on different days.
-    //         return color(d[2]);
-    //     })
-    //     .attr("d", function (d, i) {
-    //         // Standard functions for drawing a pie charts in D3.
-    //         return arc(d[0]);
-    //     });
 
-    // arcs.append("text")
-    //     .attr("transform", function (d,i) {
-    //         // Standard functions for drawing a pie charts in D3.
-    //         return "translate(" + arc.centroid(d[0]) + ")";
-    //     })
-    //     .attr("text-anchor", "middle")
-    //     .text(function(d,i) {
-    //       return d[0].value;
-    //     });
+  // console.log(moodColors[2])
+
+  // arcs.append("circle").attr("cx", 0).attr("cy", 10).attr("r", 10).style("fill", "purple");
+  arcs.append("circle").attr("cx", 0).attr("cy", 10).attr("r", 10)
+        .style("fill", function() {
+                                  var moodColors = [ "#298e00", "#79e65e", "#fbd300", "#FB8C00", "#e21818", "white"];
+                                  // var moodColors = [ "yellow", "purple", "green", "red", "blue", "white"];
+                                    console.log(moodColors[Math.round(Math.random() * (5))]);
+                                    console.log( Math.round(Math.random() * (5)));
+                                    return moodColors[Math.round(Math.random() * (5))] ;
+                                  });
+
+  // var i = document.createElement("i");
+  // var node = document.createTextNode("sentiment_neutral");
+  // i.appendChild(node);
+  // i.className = "material-icons unhappy md-48";
+  // // i.innerHTML = i;
+  // arcs.append( function() {
+  //   return i;
+  // });
+
+
+
 
 }
-
+// document.getElementById("icon").innerHTML ="pause";
+// document.getElementById("icon2").innerHTML ="play_arrow";
+//
+// var i = document.createElement("i");
+// var node = document.createTextNode("sentiment_neutral");
+// i.appendChild(node);
+// i.className = "material-icons unhappy md-48";
+// document.getElementById("icon3").appendChild(i);
 ///////////////////////////////////////////////////////////////////////////////////////
 
 // Generates some random data that can be used to draw pie charts.
