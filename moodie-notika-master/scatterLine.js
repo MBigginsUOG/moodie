@@ -39,10 +39,10 @@ var y = d3.scale.linear().range([height, 0]);
 
 // Define the axes
 var xAxis = d3.svg.axis().scale(x)
-    .orient("bottom"); //.ticks(5);
+    .orient("bottom").ticks(5);
 
 var yAxis = d3.svg.axis().scale(y)
-    .orient("left"); //.ticks(5);
+    .orient("left").ticks(5);
 
 // Define the line
 var valueline = d3.svg.line()
@@ -111,7 +111,19 @@ var svg = d3.select(id)
         .attr("class","dot")
         .attr("r", 3.5)
         .attr("id","exercisedDots")
-        .style("fill", "red")
+        // .style("fill", "red")
+				.style("fill", function(d) {
+					if (d.mood==1)
+						return "#e21818";
+					else if (d.mood==2)
+						return "#FB8C00"
+					else if (d.mood==3)
+						return "#fbd300"
+					else if (d.mood==4)
+						return "#79e65e"
+					else // if (d.mood==5)
+						return "#298e00";
+				})
         .attr("opacity", function(d) {
           // var active   = exercisedDots.active ? false : true;
           return (d.exercised==0) ? 0 : 1;
@@ -163,7 +175,19 @@ var svg = d3.select(id)
         .attr("class","dot")
         .attr("r", 3.5)
         .attr("id","cleanedDots")
-        .style("fill", "green")
+        // .style("fill", "green")
+				.style("fill", function(d) {
+					if (d.mood==1)
+						return "#e21818";
+					else if (d.mood==2)
+						return "#FB8C00"
+					else if (d.mood==3)
+						return "#fbd300"
+					else if (d.mood==4)
+						return "#79e65e"
+					else // if (d.mood==5)
+						return "#298e00";
+				})
         .attr("opacity", function(d) {
           return (d.cleaned==0) ? 0 : 1;
         })
@@ -186,7 +210,19 @@ svg.selectAll("dot")
 		.attr("class","dot")
 		.attr("r", 3.5)
 		.attr("id","friendsDots")
-		.style("fill", "orange")
+		// .style("fill", "orange")
+		.style("fill", function(d) {
+			if (d.mood==1)
+				return "#e21818";
+			else if (d.mood==2)
+				return "#FB8C00"
+			else if (d.mood==3)
+				return "#fbd300"
+			else if (d.mood==4)
+				return "#79e65e"
+			else // if (d.mood==5)
+				return "#298e00";
+		})
 		.attr("opacity", function(d) {
 			return (d.friends==0) ? 0 : 1;
 		})
@@ -211,7 +247,19 @@ svg.selectAll("dot")
 		.attr("class","dot")
 		.attr("r", 3.5)
 		.attr("id","dateDots")
-		.style("fill", "pink")
+		// .style("fill", "pink")
+		.style("fill", function(d) {
+			if (d.mood==1)
+				return "#e21818";
+			else if (d.mood==2)
+				return "#FB8C00"
+			else if (d.mood==3)
+				return "#fbd300"
+			else if (d.mood==4)
+				return "#79e65e"
+			else // if (d.mood==5)
+				return "#298e00";
+		})
 		.attr("opacity", function(d) {
 			return (d.friends==0) ? 0 : 1;
 		})
