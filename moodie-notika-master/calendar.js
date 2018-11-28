@@ -218,11 +218,11 @@ function drawGraphsForMonthlyData() {
   // arcs.append("circle").attr("cx", 0).attr("cy", 10).attr("r", 10).style("fill", "purple");
   arcs.append("circle").attr("cx", 0).attr("cy", 10).attr("r", 10)
         .style("fill", function() {
-                                  var moodColors = [ "#298e00", "#79e65e", "#fbd300", "#FB8C00", "#e21818", "white"];
+                                  var moodColors = [ "#298e00", "#79e65e", "#fbd300", "#FB8C00", "#e21818", "white", "white", "white"];
                                   // var moodColors = [ "yellow", "purple", "green", "red", "blue", "white"];
-                                    console.log(moodColors[Math.round(Math.random() * (5))]);
-                                    console.log( Math.round(Math.random() * (5)));
-                                    return moodColors[Math.round(Math.random() * (5))] ;
+                                    console.log(moodColors[Math.round(Math.random() * (7))]);
+                                    console.log( Math.round(Math.random() * (7)));
+                                    return moodColors[Math.round(Math.random() * (7))] ;
                                   });
 
   // var i = document.createElement("i");
