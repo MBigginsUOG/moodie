@@ -9,10 +9,10 @@ var freqData=[
 ];
 
 // dashboard('#dashboard',freqData);
-dashboard('#histId','#legId', freqData);
+dailymood('#dailyMoodId', freqData);
 
 // function dashboard(id, fData){
-function dashboard(histId, legId, fData){
+function dailymood(histId, fData){
 
   var	margin = {top: 30, right: 40, bottom: 70, left: 50};
 
@@ -27,7 +27,10 @@ function dashboard(histId, legId, fData){
                         }
   // compute total for each Activity.
   fData.forEach(function(d){
-                            d.total = (d.freq.sentiment_very_dissatisfied + d.freq.sentiment_dissatisfied + d.freq.sentiment_neutral + d.freq.sentiment_satisfied + d.freq.sentiment_very_satisfied;
+                            // d.total = (d.freq.sentiment_very_dissatisfied + d.freq.sentiment_dissatisfied + d.freq.sentiment_neutral + d.freq.sentiment_satisfied + d.freq.sentiment_very_satisfied;
+                            d.total = Math.random(Math.round(4))
+
+                            // (d.freq.sentiment_very_dissatisfied + d.freq.sentiment_dissatisfied + d.freq.sentiment_neutral + d.freq.sentiment_satisfied + d.freq.sentiment_very_satisfied;
                             });
 
     // function to handle histogram.
@@ -43,6 +46,7 @@ function dashboard(histId, legId, fData){
     //             .attr("width", hGDim.w + hGDim.l + hGDim.r)
     //             .attr("height", hGDim.h + hGDim.t + hGDim.b).append("g")
     //             .attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")");
+
 
     var hGsvg = d3.select(histId)
     // var hGsvg = d3.select(id)
@@ -84,8 +88,7 @@ function dashboard(histId, legId, fData){
             .attr("width", x.rangeBand())
             .attr("height", function(d) { return hGDim.h - y(d[1]); })
             .attr('fill',barColor)
-            .on("mouseover",mouseover)// mouseover is defined bebad.
-            .on("mouseout",mouseout);// mouseout is defined bebad.
+
 
         //Create the frequency labels above the rectangles.
         bars.append("text").text(function(d){ return d3.format(",")(d[1])})
@@ -93,41 +96,8 @@ function dashboard(histId, legId, fData){
             .attr("y", function(d) { return y(d[1])-5; })
             .attr("text-anchor", "middle");
 
-        function mouseover(d){  // utility function to be called on mouseover.
-            // filter for selected Activity.
-            var st = fData.filter(function(s){ return s.Activity == d[0];})[0],
-                nD = d3.keys(st.freq).map(function(s){ return {type:s, freq:st.freq[s]};});
 
-            // call update functions of pie-chart and legend.
-            pC.update(nD);
-            leg.update(nD);
-        }
-
-        function mouseout(d){    // utility function to be called on mouseout.
-            // reset the pie-chart and legend.
-            pC.update(tF);
-            leg.update(tF);
-        }
-
-        // create function to update the bars. This will be used by pie-chart.
-        hG.update = function(nD, color){
-            // update the domain of the y-axis map to reflect change in frequencies.
-            y.domain([0, d3.max(nD, function(d) { return d[1]; })]);
-
-            // Attach the new data to the bars.
-            var bars = hGsvg.selectAll(".bar").data(nD);
-
-            // transition the height and color of rectangles.
-            bars.select("rect").transition().duration(500)
-                .attr("y", function(d) {return y(d[1]); })
-                .attr("height", function(d) { return hGDim.h - y(d[1]); })
-                .attr("fill", color);
-
-            // transition the frequency labels location and change value.
-            bars.select("text").transition().duration(500)
-                .text(function(d){ return d3.format(",")(d[1])})
-                .attr("y", function(d) {return y(d[1])-5; });
-        }
+        histoGram(fD)
         return hG;
     }
 

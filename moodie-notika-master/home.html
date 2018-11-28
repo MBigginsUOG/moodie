@@ -433,10 +433,10 @@
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="breadcomb-list" align="center">
               <h1> Moodie Tracker </h1>
-              <button id="sportButton" class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg"onclick="bigMood(this)">  <i class="material-icons">directions_run</i> Sport</button>
-              <button id="cleanButton" class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg "onclick="bigMood(this)">  <i class="material-icons">flare</i> Clean</button>
-              <button id="friendsButton" class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">people</i> Friends</button>
-              <button id="dateButton" class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">favorite</i> Date</button>
+              <button id="sportButton" style="background-color:#00c292" class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg"onclick="bigMood(this)">  <i class="material-icons">directions_run</i> Sport</button>
+              <button id="cleanButton" style="background-color:#00c292" class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg "onclick="bigMood(this)">  <i class="material-icons">flare</i> Clean</button>
+              <button id="friendsButton" style="background-color:#00c292" class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">people</i> Friends</button>
+              <button id="dateButton" style="background-color:#00c292" class="btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg" onclick="bigMood(this)">  <i class="material-icons">favorite</i> Date</button>
               <div align="center" id='scatterLineId'></div>
 
             </div>
@@ -454,7 +454,23 @@
       </div>
     </div>
 
+    <div class="sale-statistic-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+                  <div class="sale-statistic-inner notika-shadow mg-tb-30">
+                    <div align="center" id='dailyMoodId'></div>
+                </div>
+                </div>
+                <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+                  <div class="sale-statistic-inner notika-shadow mg-tb-30">
 
+
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Start Footer area ---------------------------------------------->
@@ -568,6 +584,7 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="dashboard.js"></script>
     <script src="scatterLine.js"></script>
+    <script src="dailymood.js"></script>
     <script src="calendar.js"></script>
 
 </body>
