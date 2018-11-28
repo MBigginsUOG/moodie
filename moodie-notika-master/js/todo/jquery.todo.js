@@ -23,48 +23,28 @@
         this.$todoData = [
         {
             'id': '1',
-            'text': 'Fivamus sagittis lacus vel',
+            'text': 'Phone Mum!',
             'done': false
         },
         {
             'id': '2',
-            'text': 'Nullam dolor nibh ultricies',
-            'done': true
+            'text': 'Clean my room',
+            'done': false
         },
         {
             'id': '3',
-            'text': 'Cras mattis consectetur purus',
+            'text': 'Wrap Greig\'s Birthday present',
             'done': true
         },
         {
             'id': '4',
-            'text': 'Integer posuere erat ante',
+            'text': 'Buy a card',
             'done': true
         },
         {
             'id': '5',
-            'text': 'Praesent commodo cursus magnavel',
+            'text': 'Finish my project',
             'done': false
-        },
-        {
-            'id': '6',
-            'text': 'Cras mattis consectetur',
-            'done': true
-        },
-        {
-            'id': '7',
-            'text': 'Fivamus sagittis lacus vel',
-            'done': true
-        },
-        {
-            'id': '8',
-            'text': 'Nullam dolor nibh ultricies',
-            'done': true
-        },
-        {
-            'id': '9',
-            'text': 'Nullam dolor nibh ultricies',
-            'done': true
         }];
 
         this.$todoCompletedData = [];
@@ -138,7 +118,7 @@
 
         //binding todo done chk
         $(document).on("change", this.$todoDonechk, function() {
-            if(this.checked) 
+            if(this.checked)
                 $this.markTodo($(this).attr('id'), true);
             else
                 $this.markTodo($(this).attr('id'), false);
@@ -158,7 +138,7 @@
     },
     //init TodoApp
     $.TodoApp = new TodoApp, $.TodoApp.Constructor = TodoApp
-    
+
 }(window.jQuery),
 
 //initializing todo app
