@@ -30,17 +30,19 @@ var	height = 300 - margin.top - margin.bottom;
 
 // Parse the date / time
 var parseDate = d3.time.format("%d-%b-%y").parse;
+// var parseDate = d3.time.format("%Y-%m-%d").parse;
 
 // Set the ranges
 var x = d3.time.scale().range([0, width]);
 var y = d3.scale.linear().range([height, 0]);
 
+
 // Define the axes
 var xAxis = d3.svg.axis().scale(x)
-    .orient("bottom").ticks(5);
+    .orient("bottom"); //.ticks(5);
 
 var yAxis = d3.svg.axis().scale(y)
-    .orient("left").ticks(5);
+    .orient("left"); //.ticks(5);
 
 // Define the line
 var valueline = d3.svg.line()
@@ -75,10 +77,20 @@ var svg = d3.select(id)
     y.domain([0, d3.max(data, function(d) { return d.mood; })]);
 
     // Add the X Axis
-    svg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
+    // svg.append("g")
+    //     .attr("class", "x axis")
+    //     .attr("transform", "translate(0," + height + ")")
+    //     .call(xAxis);
+
+		svg.append("g")
+	      .attr("class", "x axis")
+	      .attr("transform", "translate(0," + height + ")")
+				.call(xAxis) //.tickFormat(d3.timeFormat("%a %Y-%m-%d")))
+				.selectAll("text")
+	        .style("text-anchor", "end")
+	        .attr("dx", "-.8em")
+	        .attr("dy", ".15em")
+	        .attr("transform", "rotate(-65)");
 
     // Add the Y Axis
     svg.append("g")
