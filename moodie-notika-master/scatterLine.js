@@ -264,7 +264,7 @@ svg.selectAll("dot")
 			return (d.friends==0) ? 0 : 1;
 		})
 		.attr("cx", function(d) { return x(d.date); })
-		.attr("cy", function(d) { return y(d.friends); });
+		.attr("cy", function(d) { return y(d.dates); });
 
 d3.select("#dateButton").on("click", function(){
 
@@ -272,7 +272,7 @@ d3.select("#dateButton").on("click", function(){
 			var newOpacity = active ? 0 : 1;
 			d3.selectAll("#dateDots")
 					.style("opacity", function(d) {
-																		return (d.friends==0) ? 0 : newOpacity;
+																		return (d.dates==0) ? 0 : newOpacity;
 																		})
 			dateDots.active = active;
 });
