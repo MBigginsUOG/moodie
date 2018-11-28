@@ -1,12 +1,22 @@
 var freqData=[
-{Activity:'Sport',freq:{awful:3, bad:7, meh:10, good:15, rad:23}}
+{Activity:'Sport',   freq:{sentiment_very_dissatisfied:3, sentiment_dissatisfied:7, sentiment_neutral:10, sentiment_satisfied:15, sentiment_very_satisfied:25}}
+,{Activity:'Relax',   freq:{sentiment_very_dissatisfied:0, sentiment_dissatisfied:3, sentiment_neutral:9, sentiment_satisfied:13, sentiment_very_satisfied:15}}
+,{Activity:'Food',    freq:{sentiment_very_dissatisfied:0, sentiment_dissatisfied:1, sentiment_neutral:10, sentiment_satisfied:15, sentiment_very_satisfied:19}}
+,{Activity:'Games',   freq:{sentiment_very_dissatisfied:3, sentiment_dissatisfied:5, sentiment_neutral:15, sentiment_satisfied:13, sentiment_very_satisfied:16}}
+,{Activity:'Clean',  freq:{sentiment_very_dissatisfied:4, sentiment_dissatisfied:2, sentiment_neutral:5, sentiment_satisfied:3, sentiment_very_satisfied:10}}
+,{Activity:'Friends',freq:{sentiment_very_dissatisfied:5, sentiment_dissatisfied:2, sentiment_neutral:10, sentiment_satisfied:17, sentiment_very_satisfied:20}}
+,{Activity:'Date',   freq:{sentiment_very_dissatisfied:0, sentiment_dissatisfied:1, sentiment_neutral:2, sentiment_satisfied:6, sentiment_very_satisfied:5}}
+// {Activity:'Sport',   freq:{awful:3, bad:7, meh:10, good:15, rad:25}}
+// ,{Activity:'Relax',   freq:{awful:0, bad:3, meh:9, good:13, rad:15}}
+// ,{Activity:'Food',    freq:{awful:0, bad:1, meh:10, good:15, rad:19}}
+// ,{Activity:'Games',   freq:{awful:3, bad:5, meh:15, good:13, rad:16}}
+// ,{Activity:'Clean',  freq:{awful:4, bad:2, meh:5, good:3, rad:10}}
+// ,{Activity:'Friends',freq:{awful:5, bad:2, meh:10, good:17, rad:20}}
+// ,{Activity:'Date',   freq:{awful:0, bad:1, meh:2, good:6, rad:5}}
 // ,{Activity:'AZ',freq:{awful:34, bad:1101, meh:412, good:674, rad:99}}
 // ,{Activity:'CT',freq:{awful:44, bad:932, meh:219, good:418, rad:199}}
-,{Activity:'Clean',freq:{awful:4, bad:2, meh:5, good:3, rad:10}}
 // ,{Activity:'GA',freq:{awful:4, bad:119, meh:167, good:163, rad:99}}
-,{Activity:'Friends',freq:{awful:5, bad:2, meh:10, good:17, rad:20}}
 // ,{Activity:'IL',freq:{awful:4, bad:448, meh:3852, good:942, rad:99}}
-,{Activity:'Date',freq:{awful:0, bad:1, meh:2, good:6, rad:5}}
 // ,{Activity:'KS',freq:{awful:43, bad:162, meh:379, good:471, rad:969}}
 ];
 
@@ -20,16 +30,16 @@ function dashboard(histId, legId, pieId, fData){
 
   var barColor = '#2196F3';
   function segColor(c){ return {
-                                  awful:"#e21818",
-                                  bad:"#FB8C00",
-                                  meh:"#fbd300",
-                                  good:"#79e65e",
-                                  rad:"#298e00"
+                                  sentiment_very_dissatisfied:"#e21818",
+                                  sentiment_dissatisfied:"#FB8C00",
+                                  sentiment_neutral:"#fbd300",
+                                  sentiment_satisfied:"#79e65e",
+                                  sentiment_very_satisfied:"#298e00"
                                 }[c];
                         }
   // compute total for each Activity.
   fData.forEach(function(d){
-                            d.total = d.freq.awful + d.freq.bad + d.freq.meh + d.freq.good + d.freq.rad;
+                            d.total = d.freq.sentiment_very_dissatisfied + d.freq.sentiment_dissatisfied + d.freq.sentiment_neutral + d.freq.sentiment_satisfied + d.freq.sentiment_very_satisfied;
                             });
 
     // function to handle histogram.
@@ -197,13 +207,19 @@ function dashboard(histId, legId, pieId, fData){
         // create one row per segment.
         var tr = legend.append("tbody").selectAll("tr").data(lD).enter().append("tr");
 
-        // create the first column for each segment.
-        tr.append("td").append("svg").attr("width", '16').attr("height", '16').append("rect")
-            .attr("width", '16').attr("height", '16')
-			.attr("fill",function(d){ return segColor(d.type); });
+      //   // create the first column for each segment.
+      //   tr.append("td").append("svg").attr("width", '16').attr("height", '16').append("rect")
+      //       .attr("width", '16').attr("height", '16')
+			// .attr("fill",function(d){ return segColor(d.type); });
 
         // create the second column for each segment.
-        tr.append("td").text(function(d){ return d.type;});
+        tr.append("i").attr("class",'material-icons')
+            .text(function(d){return d.type;})
+            .style("color",function(d){ return segColor(d.type); });
+
+        // tr.append("td").attr("class",'legendLabel')
+        //     .text(function(d){ return d.type;});
+
 
         // create the third column for each segment.
         tr.append("td").attr("class",'legendFreq')
@@ -217,6 +233,8 @@ function dashboard(histId, legId, pieId, fData){
         leg.update = function(nD){
             // update the data attached to the row elements.
             var l = legend.select("tbody").selectAll("tr").data(nD);
+
+            l.select(".legendLabel").text("Hello");
 
             // update the frequencies.
             l.select(".legendFreq").text(function(d){ return d3.format(",")(d.freq);});
@@ -233,7 +251,7 @@ function dashboard(histId, legId, pieId, fData){
     }
 
     // calculate total frequency by segment for all Activity.
-    var tF = ['awful','bad','meh','good','rad'].map(function(d){
+    var tF = ['sentiment_very_dissatisfied','sentiment_dissatisfied','sentiment_neutral','sentiment_satisfied','sentiment_very_satisfied'].map(function(d){
         return {type:d, freq: d3.sum(fData.map(function(t){ return t.freq[d];}))};
     });
 
